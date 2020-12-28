@@ -1,0 +1,339 @@
+http:
+  port: 8084
+admin:
+  port: 9876
+  host: localhost
+# 1) Cadastra rotas --------------------------------------------
+apiEndpoints:    
+  autenticaAPI:
+    paths:
+      - '/api/autenticar'
+      - '/api/autenticar/*'
+      - '/api/doc'
+      - '/api/doc/*'       
+  # Perfil Api
+  perfilAPI:
+    paths:
+      - '/api/perfil'      
+      - '/api/perfil/*'  
+   # Usuario  Api    
+  usuarioAPI:
+    paths:
+      - '/api/usuario'  
+      - '/api/usuario/*'    
+  # Empresa Api
+  empresaAPI:
+    paths:
+      - '/api/empresa'           
+      - '/api/grupo'  
+      - '/api/filial'  
+      - '/api/empresa/*'           
+      - '/api/grupo/*'  
+      - '/api/filial/*'    
+   # Modulo Api        
+  moduloAPI:
+    paths:
+      - '/api/modulo/*'    
+      - '/api/funcionalidade/*'
+      - '/api/modulo'    
+      - '/api/funcionalidade'
+  # Veiculo Api
+  veiculoAPI:
+    paths:
+      - '/api/veiculo'
+      - '/api/veiculo/*'    
+  regiaooperacaoAPI:
+    paths:
+      - '/api/regiaooperacao'
+      - '/api/regiaooperacao/*'    
+  # Motorista Api
+  motoristaAPI:
+    paths:
+      - '/api/motorista'
+      - '/api/motorista/*'      
+  # Parceiro Api
+  parceiroAPI:
+    paths:
+      - '/api/tipocarga'
+      - '/api/tipocarga/*'
+      - '/api/parceiro'
+      - '/api/parceiro/*'
+      - '/api/custooperacional'
+      - '/api/custooperacional/*'
+      - '/api/tempomovimento'
+      - '/api/tempomovimento/*'
+      - '/api/rota'
+      - '/api/rota/*'
+      - '/api/classificacaoparceiro'
+      - '/api/classificacaoparceiro/*'
+      - '/api/parceiroClassificacao'
+      - '/api/parceiroClassificacao/*'
+      - '/api/classificacao'
+      - '/api/classificacao/*'
+      - '/api/fornecedor'
+      - '/api/fornecedor/*'
+  # Disponibilidade Api
+  disponibilidadeAPI:
+    paths:
+      - '/api/disponibilidade'      
+      - '/api/disponibilidade/*'
+  # Poligono Api  
+  poligonoAPI:
+    paths:
+      - '/api/poligono'
+      - '/api/poligono/*'   
+  # Monitoramento Api
+  monitoramentoAPI:
+    paths:
+      - '/api/tipoocorrencia'
+      - '/api/tipoocorrencia/*'
+      - '/api/ocorrencia'
+      - '/api/ocorrencia/*'
+      - '/api/ocorrencia/origemOcorrencia'
+      - '/api/ocorrencia/origemOcorrencia/*'
+      - '/api/parametroGeral'
+      - '/api/parametroGeral/*'
+  # Pedido Api  
+  pedidoAPI:
+    paths:
+      - '/api/pedido'
+      - '/api/pedido/*'  
+  # Notificação Api  
+  notificacaoAPI:
+    paths:
+      - '/api/notificacao'
+      - '/api/notificacao/*'    
+  # Dashboard Api
+  dashboardAPI:
+    paths:
+      - '/api/dashboard'
+      - '/api/dashboard/*'    
+# -------- HUB -------------
+  # Hub
+  rodoparHub:
+    paths:
+      - '/hub/*'  
+      - '/hub'  
+# 2) Cadastro de ip e portas        ----------------------------------------------------
+serviceEndpoints:
+ autenticaService:
+    url: 'http://172.17.0.3:8086'
+  perfilService:
+    url: 'http://172.17.0.4:8087'
+  usuarioService:
+    url: 'http://172.17.0.5:8088'
+  empresaService:
+    url: 'http://172.17.0.6:8089'
+  moduloService:
+    url: 'http://172.17.0.7:8091'
+  veiculoService:
+    url: 'http://172.17.0.8:8092'
+  regiaooperacaoService:
+    url: 'http://172.17.0.11:8095'
+  motoristaService:
+    url: 'http://172.17.0.9:8093'
+  parceiroService:
+    url: 'http://172.17.0.10:8094'
+  disponibilidadeService:
+    url: 'http://172.17.0.12:8096'
+  poligonoService:
+    url: 'http://172.17.0.13:8097'
+  pedidoService:
+    url: 'http://172.17.0.14:8098'
+  notificacaoService:
+    url: 'http://172.17.0.15:8099'
+  monitoramentoService:
+    url: 'http://172.17.0.16:8105'
+  dashboardService:
+    url: 'http://172.17.0.17:8106'
+  # Hub 
+  rodoparHubService:
+    url: 'http://172.17.0.2:8090' 
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+# 3) Associa endpoints com ips e portas ------------------------------------------------
+pipelines:
+# Autentica Api
+  - name: autentica
+    apiEndpoints:
+      - autenticaAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: autenticaService
+              changeOrigin: true
+  # Perfil Api
+  - name: perfil
+    apiEndpoints:
+      - perfilAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: perfilService
+              changeOrigin: true    
+# Usuario  Api                    
+  - name: usuario
+    apiEndpoints:
+      - usuarioAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: usuarioService
+              changeOrigin: true    
+# Empresa Api                    
+  - name: empresa
+    apiEndpoints:
+      - empresaAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: empresaService
+              changeOrigin: true                 
+# Modulo  Api            
+  - name: modulo
+    apiEndpoints:
+      - moduloAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: moduloService
+              changeOrigin: true    
+# Veiculo  Api       
+  - name: veiculo
+    apiEndpoints:
+      - veiculoAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: veiculoService
+              changeOrigin: true
+# RegiaoOperacao Api       
+  - name: regiaooperacao
+    apiEndpoints:
+      - regiaooperacaoAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: regiaooperacaoService
+              changeOrigin: true
+# Motorista  Api       
+  - name: motorista
+    apiEndpoints:
+      - motoristaAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: motoristaService
+              changeOrigin: true      
+# Parceiro  Api
+  - name: parceiro
+    apiEndpoints:
+      - parceiroAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: parceiroService
+              changeOrigin: true                  
+# Disponibilidade  Api       
+  - name: disponibilidade
+    apiEndpoints:
+      - disponibilidadeAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: disponibilidadeService
+              changeOrigin: true           
+# Poligono  Api       
+  - name: poligono
+    apiEndpoints:
+      - poligonoAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: poligonoService
+              changeOrigin: true        
+# Monitoramento Api
+  - name: monitoramento
+    apiEndpoints:
+      - monitoramentoAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: monitoramentoService
+              changeOrigin: true
+# Pedido Api       
+  - name: pedido
+    apiEndpoints:
+      - pedidoAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: pedidoService
+              changeOrigin: true      
+# Notificação Api       
+  - name: notificacao
+    apiEndpoints:
+      - notificacaoAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: notificacaoService
+              changeOrigin: true     
+# Dashboard Api
+  - name: dashboard
+    apiEndpoints:
+      - dashboardAPI
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: dashboardService
+              changeOrigin: true                 
+# ----------- HUB ----------------      
+# Empresa Hub                    
+  - name: rodopar_hub
+    apiEndpoints:
+      - rodoparHub
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: rodoparHubService
+              changeOrigin: true                                     

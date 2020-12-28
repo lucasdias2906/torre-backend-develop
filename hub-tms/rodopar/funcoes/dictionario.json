@@ -1,0 +1,20 @@
+{
+    "en-US": {
+        "NaoAchouCampoPagina": "Please enter the field: pagina.",
+        "SemPaginacao": "There is no pagination.",
+        "PaginaNaoExiste": "Pagination is greater than total pages.",
+        "MotoristaNaoEncontrado": "Driver not found"
+    },
+    "es-ES": {
+        "NaoAchouCampoPagina": "Por favor ingrese el campo: pagina.",
+        "SemPaginacao": "No hay paginación.",
+        "PaginaNaoExiste": "La paginación es mayor que el total de páginas.",
+        "MotoristaNaoEncontrado": "Controlador no encontrado."
+    },
+    "pt-BR": {
+        "NaoAchouCampoPagina": "Favor informar o campo: pagina.",
+        "SemPaginacao": "Não existe paginação.",
+        "PaginaNaoExiste": "Paginação é maior que o total de páginas",
+        "MotoristaNaoEncontrado": "Motorista não encontrado"
+    }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="7.7550" tests="3" failures="0">
+  <testsuite name="Root Suite" timestamp="2020-01-27T13:00:27" tests="0" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="/POST Login" timestamp="2020-01-27T13:00:27" tests="1" file="C:\sistemas\torre-servicos\testes\test\veiculo\veiculo.spec.test.js" time="4.1650" failures="0">
+    <testcase name="/POST Login Verificar a geração do token autenticação" time="4.1650" classname="Verificar a geração do token autenticação">
+    </testcase>
+  </testsuite>
+  <testsuite name="/GET Veículo" timestamp="2020-01-27T13:00:31" tests="2" file="C:\sistemas\torre-servicos\testes\test\veiculo\veiculo.spec.test.js" time="3.5900" failures="0">
+    <testcase name="/POST Login /GET Veículo Verificar a listagem de Veículo" time="3.0490" classname="Verificar a listagem de Veículo">
+    </testcase>
+    <testcase name="/POST Login /GET Veículo Obter Veículo por codigoVeiculo" time="0.5410" classname="Obter Veículo por codigoVeiculo">
+    </testcase>
+  </testsuite>
+</testsuites>

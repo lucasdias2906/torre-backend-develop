@@ -1,0 +1,55 @@
+node {
+
+    def PORT = "8085:8085"
+    def IP = "$IP_DEV_1"
+    def CONTAINER = "dev-torre-servicos-motorista"
+      
+    stage('Checkout') {
+        git branch: '${branch}', credentialsId: "$GIT_CUBO_CREDENTIALS", url: '$GIT_CUBO_URL/torre-servicos.git';
+    }
+    
+    stage('AcessoPasta') {
+        nodejs('NodeJS') {
+           // sh 'npm install && npm run build';
+           // sh 'cd ${service}/ && npm install ';
+            sh 'cd hub-tms/rodopar/${service}/ ';
+        }
+    }
+    
+ stage('Build') {
+        nodejs('NodeJS') {
+           // sh 'npm install && npm run build';
+            sh 'npm install ';
+        }
+    }
+  
+    stage('DockerImage') {
+        sh "cd hub-tms/rodopar/${service}/ && docker build -t ${CONTAINER} ."
+        sh "docker tag ${CONTAINER} $DOCKER_CUBO_REPOSITORIO:${CONTAINER}-${branch}";
+    }
+    
+    stage('DockePush') {
+        sh 'docker login -u $DOCKER_CUBO_LOGIN -p $DOCKER_CUBO_SENHA';
+        sh "docker push $DOCKER_CUBO_REPOSITORIO:${CONTAINER}-${branch}";
+    }
+    
+    stage('DockerPull') {
+        sh "sudo ssh -i $PEM ${IP} 'sudo docker pull $DOCKER_CUBO_REPOSITORIO:${CONTAINER}-${branch}'";
+    }
+	
+	try{
+	stage('DockerStop') {
+		sh "sudo ssh -i $PEM ${IP} 'docker stop ${CONTAINER} && docker rm ${CONTAINER}'";
+	}
+	}catch(e)
+	{
+		echo 'Não foi encontrado um container para parar';
+	}
+   
+    stage('DockerRestart') {
+        //sh "sudo ssh -i $PEM ${IP} 'docker stop ${CONTAINER} && docker rm ${CONTAINER}'";
+        sh "sudo ssh -i $PEM ${IP} 'sudo docker run -p ${PORT} -d --name ${CONTAINER} arquitetocubo/cuboconnect:${CONTAINER}-${branch}'";
+        sh "sudo docker system prune -a -f";
+    }
+   
+}

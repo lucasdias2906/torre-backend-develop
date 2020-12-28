@@ -1,0 +1,47 @@
+node {
+
+    def PORT = "8084:8084"
+    def CONTAINER = "qa-torre-servicos-gateway"
+    def service= "torre-gateway/"
+	
+    stage('Checkout') {
+        git branch: '${branch}', credentialsId: "$GIT_GRUPO_MIRASSOL_CREDENTIALS", url: '$GIT_GRUPO_MIRASSOL_URL/tpo-backend.git';
+    }
+    
+    stage('AcessoPasta') {
+        nodejs('NodeJS') {
+            sh 'cd torre-gateway/ ';
+        }
+    }
+    
+    stage('PreparaDockerfile') {
+        nodejs('NodeJS') {
+            sh ' cd torre-gateway/config && mv gateway.config_qa.yml gateway.config.yml ';
+        }
+    }
+
+    stage('Build') {
+        nodejs('NodeJS') {
+            sh ' cd torre-gateway && npm install ';
+        }
+    }
+  
+    stage('DockerImage') {     
+        sh "cd torre-gateway && docker build -f Dockerfile -t ${CONTAINER} ."
+        sh "cd torre-gateway && docker tag ${CONTAINER} $DOCKER_TAG:${CONTAINER}-${branch}";
+    }
+    
+    try{
+        stage('DockerStop') {
+	    sh "docker stop ${CONTAINER} && docker rm ${CONTAINER}";
+	}
+    }
+    catch(e) {
+        echo 'Não foi encontrado um container para parar';
+    }
+    
+    stage('DockerRestart') {       
+        sh " docker run -p ${PORT} -d --name ${CONTAINER} --log-opt max-size=100m --restart=always $DOCKER_TAG:${CONTAINER}-${branch}";
+        sh " docker system prune -a -f";
+    }
+}

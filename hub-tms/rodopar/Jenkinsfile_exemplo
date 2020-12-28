@@ -1,0 +1,45 @@
+node {
+
+  def PORT = "8096:8096"
+  def IP = "$IP_DEV_BLOOMUP"
+  def CONTAINER = "establishment-service"
+
+  withMaven(maven:'maven-3') {
+
+    stage('Checkout') {
+        git branch: '${branch}', credentialsId: "$GIT_PITAYA_CREDENTIALS", url: '$GIT_PITAYA_URL/bloomup-back.git';
+    }
+
+    stage('Build') {
+      dir('establishment-service') {
+        sh 'mvn clean install'
+        def pom = readMavenPom file:'pom.xml'
+        print pom.version
+        env.version = pom.version
+        currentBuild.description = "Release: ${env.version}"
+      }
+    }
+
+    stage('DockerImage') {
+        sh "docker build -t ${CONTAINER} /var/lib/jenkins/workspace/dev-bloomup-api/${service}"
+        sh "docker tag ${CONTAINER} $DOCKER_BLOOMUP_REPOSITORIO:${CONTAINER}-${branch}";
+    }
+
+    stage('DockePush') {
+        sh 'docker login -u $DOCKER_BLOOMUP_LOGIN -p $DOCKER_BLOOMUP_SENHA';
+        sh "docker push $DOCKER_BLOOMUP_REPOSITORIO:${CONTAINER}-${branch}";
+    }
+    
+    stage('DockerPull') {
+        sh "sudo ssh -i $PEM_PITAYA ${IP} 'sudo docker pull $DOCKER_BLOOMUP_REPOSITORIO:${CONTAINER}-${branch}'";
+    }
+    
+    stage('DockerRestart') {
+        sh "sudo ssh -i $PEM_PITAYA ${IP} 'sudo docker stop ${CONTAINER} && sudo docker rm ${CONTAINER}'";
+        sh "sudo ssh -i $PEM_PITAYA ${IP} 'sudo docker run -p 3006 -d --name ${CONTAINER} $DOCKER_BLOOMUP_REPOSITORIO:${CONTAINER}-${branch}'";
+        sh "sudo docker system prune -a -f";
+    }
+
+  }
+
+}

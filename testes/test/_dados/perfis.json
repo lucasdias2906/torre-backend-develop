@@ -1,0 +1,102 @@
+[ {
+    "nome": "Administrador 1",    
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Administrador 2",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Administrador 3",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Administrador 4",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Administrador 5",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Administrador 6",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Administrador 7",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Administrador 8",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Administrador 9",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Administrador 10",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+
+  {
+    "nome": "Comum 1",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Comum 2",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Comum 3",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Comum 4",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Comum 5",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Comum 6",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Comum 7",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Comum 8",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Comum 9",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  },
+  {
+    "nome": "Comum 10",
+    "descricao": "Administradores do Sistema Total",
+    "status" : true
+  }
+]

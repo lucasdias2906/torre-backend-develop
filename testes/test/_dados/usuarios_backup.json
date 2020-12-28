@@ -1,0 +1,73 @@
+[   {
+        "nome": "Cristiano Sena",
+        "login": "csenass",
+        "usuarioAlteracao": "teste",
+        "dataAlteracao": "01/01/2000",
+        "usuarioInclusao": "teste",
+        "dataInclusao": "01/01/2000",
+        "senha": "123456",
+        "email": "cristiano.sena@cuboconnect.com.br",
+        "celular": "123123123213",
+        "telefone": "123123123213",
+        "cpf": "123123123213",
+        "ehCliente": false,
+        "sexo": "M",
+        "status": true,
+        "dataNascimento": "01/01/2000",
+        "permissoes": [
+            {
+                "moduloId": "5df3fb8ee44b4c51fc889cc0",
+                "funcionalidadeId": "5df3fb8ee44b4c51fc889cc1",
+                "permiteAlterar": true,
+                "permiteConsultar": true
+            }
+        ],
+        "empresas": [
+            {
+                "hubEmpresaId": 12222,
+                "filiais": [
+                    {
+                        "hubFilialId": 123
+                    }
+                ]
+            }
+        ]
+    },
+
+    {
+      "nome": "Carlos Teste",
+      "login": "csenass",
+      "usuarioAlteracao": "teste",
+      "dataAlteracao": "01/01/2000",
+      "usuarioInclusao": "teste",
+      "dataInclusao": "01/01/2000",
+      "senha": "123456",
+      "email": "cristiano.sena@cuboconnect.com.br",
+      "celular": "123123123213",
+      "telefone": "123123123213",
+      "cpf": "123123123213",
+      "ehCliente": false,
+      "sexo": "M",
+      "status": true,
+      "dataNascimento": "01/01/2000",
+      "permissoes": [
+          {
+              "moduloId": "5df3fb8ee44b4c51fc889cc0",
+              "funcionalidadeId": "5df3fb8ee44b4c51fc889cc1",
+              "permiteAlterar": true,
+              "permiteConsultar": true
+          }
+      ],
+      "empresas": [
+          {
+              "hubEmpresaId": 12222,
+              "filiais": [
+                  {
+                      "hubFilialId": 123
+                  }
+              ]
+          }
+      ]
+  }
+
+  ]

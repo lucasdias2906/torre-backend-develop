@@ -1,0 +1,962 @@
+[
+  {
+    "nome": "Vladimiro Pereira",
+    "login": "greenduck650",
+    "senha": "byebye",
+    "email": "vladimiro.pereira@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1952-04-06T04:48:38.653Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Idelso Farias",
+    "login": "organicleopard720",
+    "senha": "big1",
+    "email": "idelso.farias@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1985-01-24T07:16:43.275Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Ramna Melo",
+    "login": "bigbird898",
+    "senha": "pigeon",
+    "email": "ramna.melo@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1950-04-22T15:27:53.433Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Jussara Santos",
+    "login": "brownlion761",
+    "senha": "warner",
+    "email": "jussara.santos@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "F",
+    "status": true,
+    "dataNascimento": "1961-01-15T20:32:04.130Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Cléia Alves",
+    "login": "greenelephant621",
+    "senha": "bigones",
+    "email": "cleia.alves@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "F",
+    "status": true,
+    "dataNascimento": "1946-03-06T22:08:22.416Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Abdul Silveira",
+    "login": "beautifulbutterfly751",
+    "senha": "polaris",
+    "email": "abdul.silveira@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1946-08-09T08:42:07.544Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Rúpio Rezende",
+    "login": "silvergoose422",
+    "senha": "m5wkqf",
+    "email": "rupio.rezende@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1958-03-30T19:33:53.248Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Gabriela Barros",
+    "login": "angrybird629",
+    "senha": "rainbow",
+    "email": "gabriela.barros@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "F",
+    "status": true,
+    "dataNascimento": "1961-08-25T18:45:26.119Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Graciano Farias",
+    "login": "ticklishbear870",
+    "senha": "cowboys1",
+    "email": "graciano.farias@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1994-07-26T05:16:36.801Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Denira Porto",
+    "login": "blackmeercat209",
+    "senha": "squall",
+    "email": "denira.porto@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "F",
+    "status": true,
+    "dataNascimento": "1996-11-27T03:54:06.921Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Anastácia da Cunha",
+    "login": "heavykoala228",
+    "senha": "marlin",
+    "email": "anastacia.dacunha@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "F",
+    "status": true,
+    "dataNascimento": "1996-01-11T11:37:03.791Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Vladimiro da Rocha",
+    "login": "yellowfrog591",
+    "senha": "specialk",
+    "email": "vladimiro.darocha@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1977-02-06T06:24:27.676Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Lucélia Fogaça",
+    "login": "purplepanda631",
+    "senha": "huskies",
+    "email": "lucelia.fogaca@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "F",
+    "status": true,
+    "dataNascimento": "1978-09-18T00:26:46.083Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Ruth Gonçalves",
+    "login": "bigbird354",
+    "senha": "369369",
+    "email": "ruth.goncalves@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "F",
+    "status": true,
+    "dataNascimento": "1951-04-12T13:58:28.344Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Aleu da Conceição",
+    "login": "organicdog345",
+    "senha": "married",
+    "email": "aleu.daconceicao@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1960-01-03T09:41:03.859Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Pâmela Gomes",
+    "login": "orangeostrich878",
+    "senha": "baby",
+    "email": "pamela.gomes@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "F",
+    "status": true,
+    "dataNascimento": "1948-05-03T11:00:08.079Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Matias Silva",
+    "login": "bluedog973",
+    "senha": "baberuth",
+    "email": "matias.silva@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1989-01-23T17:44:38.612Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Caetano Rodrigues",
+    "login": "crazyladybug953",
+    "senha": "bonkers",
+    "email": "caetano.rodrigues@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1989-04-04T03:40:18.302Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Saionara Costa",
+    "login": "tinysnake445",
+    "senha": "chriss",
+    "email": "saionara.costa@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "F",
+    "status": true,
+    "dataNascimento": "1972-10-14T05:37:10.763Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Marcus Cavalcanti",
+    "login": "orangemeercat687",
+    "senha": "nnnnnn",
+    "email": "marcus.cavalcanti@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1957-12-20T12:19:27.518Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Giovana Rocha",
+    "login": "happymeercat736",
+    "senha": "vintage",
+    "email": "giovana.rocha@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "F",
+    "status": true,
+    "dataNascimento": "1953-03-12T02:03:24.485Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Hugo Cavalcanti",
+    "login": "bluebird965",
+    "senha": "fusion",
+    "email": "hugo.cavalcanti@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1995-03-06T16:53:59.544Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Celísio Silva",
+    "login": "redduck266",
+    "senha": "shooter",
+    "email": "celisio.silva@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1974-05-04T12:35:19.181Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Leal Cavalcanti",
+    "login": "silverbear403",
+    "senha": "dutchess",
+    "email": "leal.cavalcanti@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1973-04-18T05:19:26.059Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Helena Aragão",
+    "login": "blackgorilla547",
+    "senha": "fortress",
+    "email": "helena.aragao@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "F",
+    "status": true,
+    "dataNascimento": "1989-01-06T18:47:18.702Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Filipa Nogueira",
+    "login": "smallpeacock526",
+    "senha": "dododo",
+    "email": "filipa.nogueira@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "F",
+    "status": true,
+    "dataNascimento": "1979-08-04T00:59:41.758Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Zará Lima",
+    "login": "orangezebra943",
+    "senha": "idiot",
+    "email": "zara.lima@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1975-08-02T06:28:49.326Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Gerberto de Souza",
+    "login": "redbear447",
+    "senha": "chico",
+    "email": "gerberto.desouza@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1951-09-09T19:26:33.080Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Berilo Moura",
+    "login": "goldendog643",
+    "senha": "lesbain",
+    "email": "berilo.moura@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "M",
+    "status": true,
+    "dataNascimento": "1976-02-28T08:12:15.436Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "Celeste Lopes",
+    "login": "bigleopard303",
+    "senha": "alpha",
+    "email": "celeste.lopes@example.com",
+    "celular": "123123123213",
+    "telefone": "123123123213",
+    "cpf": "123123123213",
+    "ehCliente": false,
+    "sexo": "F",
+    "status": true,
+    "dataNascimento": "1986-04-10T19:26:29.074Z",
+    "perfilId": "5e20c1a86f9ab634d83c3a96",
+    "permissoes": [
+      {
+        "moduloId": "5e220426b3db495130857587",
+        "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+        "permiteAlterar": true,
+        "permiteConsultar": true
+      }
+    ],
+    "empresas": [
+      {
+        "hubEmpresaId": 1,
+        "filiais": [
+          {
+            "hubFilialId": 1
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,52 @@
+{
+    "name": "drivers",
+    "version": "1.0.0",
+    "description": "Drivers",
+    "scripts": {
+        "dev": "nodemon --exec babel-node index.js",
+        "start": "babel-node index.js",
+        "startempresa": "node indexEmpresa.js"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.js": [
+            "eslint --fix",
+            "git add"
+        ]
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "consign": "^0.1.6",
+        "cors": "^2.8.5",
+        "date-fns": "^2.8.1",
+        "dotenv": "^8.2.0",
+        "dottie": "^2.0.1",
+        "express": "^4.17.1",
+        "moment": "^2.24.0",
+        "sequelize": "^5.21.3",
+        "tedious": "^6.4.0"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "eslint": "^6.6.0",
+        "eslint-config-airbnb-base": "^14.0.0",
+        "eslint-config-prettier": "^6.5.0",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-prettier": "^3.1.1",
+        "husky": "^3.0.9",
+        "jest": "^24.9.0",
+        "lint-staged": "^9.4.2",
+        "nodemon": "^2.0.3",
+        "prettier": "^1.18.2",
+        "sequelize-cli": "^5.5.1",
+        "serverless-dotenv-plugin": "^2.1.1"
+    }
+}

@@ -1,0 +1,66 @@
+{
+"genericoNenhumRegistroExcluido": "Nenhum Registro Excluído",
+"genericoNenhumRegistroAlterado": "Nenhum Registro Alterado!",
+"genericoDataInformadaInvalida" : "Campo %%% Data Informada Inválida!",
+"genericoCampoObrigatorio" : "Campo '%%%' obrigatório!",
+
+"parametroGeralNaonEncontrado" : "Parâmetro geral [%%% - %%%] não encontrado!",
+
+"autenticacaoTokenVazioOuInvalido" : "Você precisa informar um token válido para acessar esse recurso!",
+"autenticacaoRevalidarTokenInvalido" : "O token informado é inválido!",
+"autenticacaoSenhaInvalida" : "Senha informada inválida!",
+"autenticacaoTentativasExcedidas" : "Número de %%% tentativas incorretas de login excedida. Usuário bloqueado",
+"autenticacaoLoginNaoInformado" : "Login não informado!",
+"autenticacaoSenhaNaoInformado" : "Senha não informada!",
+"autenticacaoUsuarioInativo" : "Usuário está inativo!",
+
+
+"perfilJaExiste" : "Perfil '%%%' já existe.",
+"perfilNaoEncontrado" : "Perfil com o id informado não encontrado!",
+
+"moduloJaCadastrado" : "Módulo informado já está cadastrado!",
+
+"usuarioNaoEncontrado" : "Usuário não encontrado!",
+"usuarioTokenInvalido" : "Usuário/token inválido!",
+"usuarioTokenExpirado" : "Usuário/token expirado!",
+
+"usuarioEmailJaExiste" : "Usuário com este e-mail %%% já existe!",
+"UsuarioPerfilInativo" : "Perfil '%%%' do usuário está inativo!",
+"usuarioPermissoesInvalido" : "Permissões do usuário não informada ou inválido!",
+"usuarioEmpresasInvalido" : "Empresas do usuário não informada ou inválido!",
+"usuarioUUIDTempoExpirado" : "Tempo para confirmação dos dados expirou, por favor entre em contato com o administrador!",
+"usuarioDesativado" : "Usuário '%%%' desativado, por favor entre em contato com administrador!",
+
+"RegiaoOperacaoJaCadastrada" : "Região de Operação '%%%' já cadastrada",
+
+"PoligonoJaCadastrado" : "Poligono '%%%' já cadastrado",
+"PoligonoNaoEncontrado" : "Poligono não encontrado",
+"PoligonoPontosNaoInformado" : "Favor passar um array com os Pontos geográficos!",
+"PoligonoPontosForaPadrao" : "Favor passar um array de 3 à 12 Pontos geográficos!",
+
+"InformeDataVigencia" : "Por favor informe uma Data futura para vigência",
+"VigenciaFuturaJaCadastrada" : "Já existe uma Vigência futura cadastrada",
+"VigenciaFuturaAtualizada" : "Não é permitido alterar uma vigência passada ou vigênte",
+"DeletaVigenciaValida" : "Não é permitido excluir uma vigência passada ou vigênte",
+
+"disponibilidadeFiltroSituacaoInvalida" : "Filtro para situação da disponibilidade deve ser 'T' ou 'D'",
+
+"pedidoDataRetiradaFaixaObrigatorio" : "Necessário informar faixa inicial e final para data retirada!",
+"pedidoDataEntregaFaixaObrigatorio" : "Necessário informar faixa inicial e final para data entrega!",
+"pedidoDataPrevisaoChegadaFaixaObrigatorio" : "Necessário informar faixa inicial e final para data previsão de entrega!",
+"pedidoDataFaixaUmaObrigatorio" : "Pelo menos uma das faixas de data para retirada, entrega ou previsão de chegada é obrigatório!",
+"pedidoCodigoFilialObrigatorio" : "Código da filial é obrigatório!",
+"pedidoNumeroPedidoObrigatorio" : "Número do pedido é obrigatório!",
+"pedidoNumeroProgramacaoVeiculoObrigatorio" : "Número da Programação do veículo é obrigatório!",
+
+"tipoOcorrenciaNaoExiste" : "Tipo de ocorrência não encontrado.",
+"pedidoOcorrenciaNaoInformado" : "Pedido não informado.",
+"motoristaOcorrenciaNaoInformado" : "Motorista não informado.",
+"veiculoOcorrenciaNaoInformado" : "Veículo não informado.",
+"descricaoNaoInformada" : "Descrição não informada!",
+"dataFimOcorrenciaNaoInformada" : "Data fim da ocorrência não informada.",
+
+"erroAlocacaoPedido" : "%%%",
+"erroFimDaViagemPedido" : "%%%"
+}
+

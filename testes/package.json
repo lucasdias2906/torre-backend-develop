@@ -1,0 +1,24 @@
+{
+  "name": "testes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha 'test/**/*.spec.test.js' --timeout 100000 --sort",
+    "test-jenkins": "mocha --colors --reporter mocha-jenkins-reporter",
+    "test-report": "mocha 'test/**/*.spec.test.js' --timeout 100000 --sort --reporter mocha-junit-reporter --reporter-options mochaFile=file.xml"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "dotenv": "^8.2.0",
+    "jsonfile": "^5.0.0",
+    "mocha": "^7.0.0",
+    "mocha-junit-reporter": "^1.23.3",
+    "request": "^2.88.0",
+    "should": "^13.2.3"
+  }
+}

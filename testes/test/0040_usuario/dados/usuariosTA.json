@@ -1,0 +1,34 @@
+[
+    {
+      "nome": "Usuário Teste Automatizado",
+      "login": "loginTA",
+      "senha": "123456",
+      "email": "vladimiro.pereira@example.com",
+      "celular": "123123123213",
+      "telefone": "123123123213",
+      "cpf": "123123123213",
+      "ehCliente": false,
+      "sexo": "M",
+      "status": true,
+      "dataNascimento": "1952-04-06T04:48:38.653Z",
+      "perfilId": "5e20c1a86f9ab634d83c3a96",
+      "permissoes": [
+        {
+          "moduloId": "5e220426b3db495130857587",
+          "funcionalidadeId": "5e20c08ffe6fea0778e03726",
+          "permiteAlterar": true,
+          "permiteConsultar": true
+        }
+      ],
+      "empresas": [
+        {
+          "hubEmpresaId": 1,
+          "filiais": [
+            {
+              "hubFilialId": 1
+            }
+          ]
+        }
+      ]
+    }
+]

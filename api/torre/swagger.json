@@ -1,0 +1,6247 @@
+{
+  "swagger": "2.0",
+  "securityDefinitions": {
+    "JWT": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "x-access-token"
+    }
+  },
+  "security": [
+    {
+      "JWT": []
+    }
+  ],
+  "responses": {
+    "UnauthorizedError": {
+      "description": "Access token is missing or invalid"
+    }
+  },
+  "info": {
+    "version": "1.0.0",
+    "title": "Torre - API",
+    "description": "API referente a Torre",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Carga Dados",
+      "description": "Carga Inicial de dados na base"
+    },
+    {
+      "name": "Autenticação",
+      "description": "Autenticação"
+    },
+    {
+      "name": "Módulos",
+      "description": "Módulos"
+    },
+    {
+      "name": "Ocorrências",
+      "description": "Ocorrências"
+    },
+    {
+      "name": "Perfis",
+      "description": "Perfis"
+    },
+    {
+      "name": "Empresas",
+      "description": "Empresas"
+    },
+    {
+      "name": "Filiais",
+      "description": "Filiais"
+    },
+    {
+      "name": "Usuários",
+      "description": "Usuários"
+    },
+    {
+      "name": "Motoristas",
+      "description": "Motoristas"
+    },
+    {
+      "name": "Veículos",
+      "description": "Veículos"
+    },
+    {
+      "name": "Região de Operação",
+      "description": "Região de Operação"
+    },
+    {
+      "name": "Parceiro Comercial",
+      "description": "Parceiro Comercial"
+    },
+    {
+      "name": "Rotas",
+      "description": "Rotas"
+    },
+    {
+      "name": "Polígonos",
+      "description": "Polígonos"
+    },
+    {
+      "name": "Pedidos",
+      "description": "Pedidos"
+    },
+    {
+      "name": "Notificação",
+      "description": "Notificação"
+    },
+    {
+      "name": "Rastreador",
+      "description": "Rastreador"
+    },
+    {
+      "name": "Dashboard",
+      "description": "Dashboard"
+    },
+    {
+      "name": "Parâmetros",
+      "description": "Parâmetros Gerais do Sistema"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/cargaDados/inicializarTabelas": {
+      "get": {
+        "tags": [
+          "Carga Dados"
+        ],
+        "description": "Faz uma carga inicial na base de dados",
+        "parameters": [
+          {
+            "name": "codigo",
+            "in": "query",
+            "description": "Código para inicialização",
+            "type": "String"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Resultado",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/autenticar/login": {
+      "post": {
+        "tags": [
+          "Autenticação"
+        ],
+        "description": "Efetua a autenticação do Usuário",
+        "parameters": [
+          {
+            "name": "Login",
+            "in": "body",
+            "description": "Dados para o Login",
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Autenticado",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/autenticar/alterarSenha/{uuidConfirmacao}": {
+      "post": {
+        "tags": [
+          "Autenticação"
+        ],
+        "description": "Efetua a alteração da senha do Usuário",
+        "parameters": [
+          {
+            "name": "uuidConfirmacao",
+            "in": "path",
+            "required": true,
+            "description": "UUID do usuario",
+            "type": "string"
+          },
+          {
+            "name": "Login",
+            "in": "body",
+            "description": "Dados para o Login",
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Senha Alterada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/autenticar/revalidarToken": {
+      "post": {
+        "tags": [
+          "Autenticação"
+        ],
+        "description": "revalida o token",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "Token a ser invalidado",
+            "schema": {
+              "$ref": "#/definitions/Token"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Token revalidado",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/autenticar/invalidarToken": {
+      "post": {
+        "tags": [
+          "Autenticação"
+        ],
+        "description": "Invalida o token",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "Token a ser invalidado",
+            "schema": {
+              "$ref": "#/definitions/Token"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Token invalidado",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/autenticar/enviarEmail": {
+      "post": {
+        "tags": [
+          "Autenticação"
+        ],
+        "description": "Efetua envio de email para confirmação",
+        "parameters": [
+          {
+            "name": "Login",
+            "in": "body",
+            "description": "Dados para o Login",
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/modulo": {
+      "get": {
+        "tags": [
+          "Módulos"
+        ],
+        "summary": "Listagem dos Módulos",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Modulos"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Módulos"
+        ],
+        "summary": "Inserção de um módulo",
+        "description": "Inclusão de um perfil",
+        "parameters": [
+          {
+            "name": "modulo",
+            "in": "body",
+            "description": "Módulo a ser inserido",
+            "schema": {
+              "$ref": "#/definitions/Modulo"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Modulo"
+            }
+          }
+        }
+      }
+    },
+    "/modulo/{moduloId}/funcionalidade": {
+      "get": {
+        "tags": [
+          "Módulos"
+        ],
+        "parameters": [
+          {
+            "name": "moduloId",
+            "in": "path",
+            "description": "_id do módulo"
+          }
+        ],
+        "summary": "Listagem das funcionalidades",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Funcionalidades"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Módulos"
+        ],
+        "summary": "Inserção de uma funcionalidade",
+        "description": "Inclusão de uma funcionalidade",
+        "parameters": [
+          {
+            "name": "moduloId",
+            "in": "path",
+            "description": "_id do módulo"
+          },
+          {
+            "name": "funcionalidade",
+            "in": "body",
+            "description": "Funcionalidade a ser inserido",
+            "schema": {
+              "$ref": "#/definitions/Funcionalidade"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Modulo"
+            }
+          }
+        }
+      }
+    },
+    "/ocorrencia": {
+      "get": {
+        "tags": [
+          "Ocorrências"
+        ],
+        "summary": "Listagem das Ocorrências",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Ocorrências"
+        ],
+        "summary": "Inserção de um módulo",
+        "description": "Inclusão de um perfil",
+        "parameters": [
+          {
+            "name": "modulo",
+            "in": "body",
+            "description": "Módulo a ser inserido",
+            "schema": {
+              "$ref": "#/definitions/Modulo"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Modulo"
+            }
+          }
+        }
+      }
+    },
+    "/perfil": {
+      "get": {
+        "parameters": [
+          {
+            "name": "descricao",
+            "in": "query",
+            "description": "Descrição"
+          }
+        ],
+        "tags": [
+          "Perfis"
+        ],
+        "summary": "Listagem dos Perfis",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Perfis"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Perfis"
+        ],
+        "summary": "Inclusão de um perfil",
+        "description": "Inclusão de um perfil",
+        "parameters": [
+          {
+            "name": "perfil",
+            "in": "body",
+            "description": "Perfil a ser inserido",
+            "schema": {
+              "$ref": "#/definitions/PerfilComPermissao"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Perfil",
+            "schema": {
+              "$ref": "#/definitions/PerfilComPermissao"
+            }
+          }
+        }
+      }
+    },
+    "/perfil/{perfilId}": {
+      "get": {
+        "tags": [
+          "Perfis"
+        ],
+        "summary": "Obter um perfil",
+        "description": "Obter um perfil",
+        "parameters": [
+          {
+            "name": "perfilId",
+            "in": "path",
+            "description": "_id do Perfil"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Perfil ",
+            "schema": {
+              "$ref": "#/definitions/PerfilComPermissao"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Perfis"
+        ],
+        "summary": "Alteração de um perfil",
+        "description": "Alteração de um perfil",
+        "parameters": [
+          {
+            "name": "perfilId",
+            "in": "path",
+            "description": "_id do Perfil"
+          },
+          {
+            "name": "perfil",
+            "in": "body",
+            "description": "Perfil a ser alterado",
+            "schema": {
+              "$ref": "#/definitions/PerfilComPermissao"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Perfil Alterado",
+            "schema": {
+              "$ref": "#/definitions/PerfilComPermissao"
+            }
+          }
+        }
+      }
+    },
+    "/perfil/{perfilId}/alterarStatus": {
+      "put": {
+        "tags": [
+          "Perfis"
+        ],
+        "summary": "Alteração de um status do perfil",
+        "description": "Alteração de um status do perfil",
+        "parameters": [
+          {
+            "name": "perfilId",
+            "in": "path",
+            "description": "_id do Perfil"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Perfil Alterado",
+            "schema": {
+              "$ref": "#/definitions/Perfil"
+            }
+          }
+        }
+      }
+    },
+    "/perfil/{perfilId}/permissao": {
+      "parameters": [
+        {
+          "name": "perfilId",
+          "in": "path",
+          "required": true,
+          "description": "_id do Perfil",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Perfis"
+        ],
+        "summary": "Listagem das permissões do Perfil",
+        "responses": {
+          "200": {
+            "description": "Permissões do Perfil",
+            "schema": {
+              "$ref": "#/definitions/PerfilPermissaoArray"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza as permissões do Perfil (desabilitar?)",
+        "tags": [
+          "Perfis"
+        ],
+        "parameters": [
+          {
+            "name": "UsuarioPermissao",
+            "in": "body",
+            "description": "permissão with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/UsuarioPermissaoArray"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Permissões atualizadas",
+            "schema": {
+              "$ref": "#/definitions/UsuarioPermissaoArray"
+            }
+          }
+        }
+      }
+    },
+    "/perfil/{perfilId}/modulo/{moduloId}/permissao": {
+      "parameters": [
+        {
+          "name": "perfilId",
+          "in": "path",
+          "required": true,
+          "description": "_id do Perfil",
+          "type": "string"
+        },
+        {
+          "name": "moduloId",
+          "in": "path",
+          "required": true,
+          "description": "_id do Módulo",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Perfis"
+        ],
+        "summary": "Listagem das permissões de um módulo",
+        "responses": {
+          "200": {
+            "description": "Permissões do Perfil",
+            "schema": {
+              "$ref": "#/definitions/PerfilPermissaoArray"
+            }
+          }
+        }
+      }
+    },
+    "/empresa": {
+      "parameters": [
+        {
+          "name": "codigoEmpresa",
+          "in": "query",
+          "description": "Código da Empresa  ",
+          "type": "string"
+        },
+        {
+          "name": "descricaoEmpresa",
+          "in": "query",
+          "description": "Descrição da Empresa",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Empresas"
+        ],
+        "summary": "Listagem das empresas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Empresas"
+            }
+          }
+        }
+      }
+    },
+    "/empresa/{empresaId}": {
+      "parameters": [
+        {
+          "name": "empresaId",
+          "in": "path",
+          "required": true,
+          "description": "Id da empresa No Hub",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Empresas"
+        ],
+        "summary": "Obter Empresa",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Empresa"
+            }
+          }
+        }
+      }
+    },
+    "/empresa/{empresaId}/filial": {
+      "parameters": [
+        {
+          "name": "empresaId",
+          "in": "path",
+          "required": true,
+          "description": "Id da empresa No Hub",
+          "type": "string"
+        },
+        {
+          "name": "codigoFilial",
+          "in": "query",
+          "description": "Código da Filial  ",
+          "type": "string"
+        },
+        {
+          "name": "nomeRazaoSocial",
+          "in": "query",
+          "description": "Razão Social da Empresa",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Empresas"
+        ],
+        "summary": "Obter a listagem as filiais por empresa",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Filial"
+            }
+          }
+        }
+      }
+    },
+    "/filial": {
+      "get": {
+        "tags": [
+          "Filiais"
+        ],
+        "summary": "Listagem das filiais",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Filiais"
+            }
+          }
+        }
+      }
+    },
+    "/filial/{FilialId}": {
+      "parameters": [
+        {
+          "name": "FilialId",
+          "in": "path",
+          "required": true,
+          "description": "Id da Filial no Hub",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Filiais"
+        ],
+        "summary": "Listagem das filiais",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Filiais"
+            }
+          }
+        }
+      }
+    },
+    "/regiaoOperacao": {
+      "post": {
+        "tags": [
+          "Região de Operação"
+        ],
+        "summary": "Inclusão  da Região de operação",
+        "description": "Inclusão da Região de Operação",
+        "parameters": [
+          {
+            "name": "Descrição da Região de Operação",
+            "in": "body",
+            "required": true,
+            "description": "Região de Operação a ser incluído",
+            "schema": {
+              "$ref": "#/definitions/RegiaoOperacao"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Região de Operação",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Região de Operação"
+        ],
+        "summary": "Listagem da Região de Operação",
+        "parameters": [
+          {
+            "name": "regiaoOperacao",
+            "in": "query",
+            "description": "Região de Operação a ser pesquisado",
+            "schema": {
+              "$ref": "#/definitions/RegiaoOperacao"
+            }
+          },
+          {
+            "name": "codigoRegiaoOperacao",
+            "in": "query",
+            "description": "Codigo da Região de Operação a ser pesquisado",
+            "schema": {
+              "$ref": "#/definitions/RegiaoOperacao"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/regiaoOperacao/{pCodigoRegiaoOperacao}/vigencia": {
+      "parameters": [
+        {
+          "name": "pCodigoRegiaoOperacao",
+          "in": "path",
+          "required": true,
+          "description": "Codigo da Região de Operação"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Região de Operação"
+        ],
+        "summary": "Inclusão da Vigência da Região de operação",
+        "description": "Inclusão da Região de Operação",
+        "parameters": [
+          {
+            "name": "Descrição da Região de Operação",
+            "in": "body",
+            "required": true,
+            "description": "Região de Operação a ser incluído",
+            "schema": {
+              "$ref": "#/definitions/VigenciaRegiaoOperacao"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Vigência da Região de Operação",
+            "schema": {
+              "$ref": "#/definitions/Motorista"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Região de Operação"
+        ],
+        "summary": "Listagem da Vigência da Região de Operação",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VigenciaRegiaoOperacao"
+            }
+          }
+        }
+      }
+    },
+    "/regiaoOperacao/vigencia/{pCodigoRegiaoOPVigencia}": {
+      "parameters": [
+        {
+          "name": "pCodigoRegiaoOPVigencia",
+          "in": "path",
+          "required": true,
+          "description": "Id da Vigencia da Regiao de Operação",
+          "type": "string"
+        }
+      ],
+      "put": {
+        "tags": [
+          "Região de Operação"
+        ],
+        "summary": "Alteração da Vigência da Região de operação",
+        "description": "Alteração da Região de Operação",
+        "parameters": [
+          {
+            "name": "vigenciaRegiaoOperacao",
+            "in": "body",
+            "required": true,
+            "description": "Região de Operação a ser incluído",
+            "schema": {
+              "$ref": "#/definitions/VigenciaRegiaoOperacao"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Vigência da Região de Operação",
+            "schema": {
+              "$ref": "#/definitions/Motorista"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Região de Operação"
+        ],
+        "summary": "Deleta a vigencia da Região de Operação",
+        "description": "Deleta a vigencia da Região de Operação por ID",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vigencia da Região de Operação Excluida",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/parceiro/classificacao": {
+      "get": {
+        "parameters": [
+          {
+            "name": "ordenacao",
+            "in": "query",
+            "description": "Campo para ordenação Ex: identificacaoClassificacao,descricaoClassificacao",
+            "type": "string"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "default": 20,
+            "description": "Limite por pagina",
+            "type": "string"
+          },
+          {
+            "name": "direcao",
+            "in": "query",
+            "description": "asc ou desc",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Listagem dos Classificações dos Parceiros",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Incluir Classificação do Parceiro",
+        "description": "Incluir Classificação do Parceiro",
+        "parameters": [
+          {
+            "name": "parceiroClassificacao",
+            "in": "body",
+            "description": "classificacao a ser incluído",
+            "schema": {
+              "$ref": "#/definitions/classificacaoParceiro"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/parceiro/classificacao/{_id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "description": "_id",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Obtém as Classificações dos Parceiros",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/fornecedor": {
+      "get": {
+        "parameters": [
+          {
+            "name": "codigoFornecedor",
+            "in": "query",
+            "description": "Código do Fornecedor",
+            "type": "string"
+          },
+          {
+            "name": "nomeRazaoSocial",
+            "in": "query",
+            "description": "Razão Social do Fornecedor",
+            "type": "string"
+          },
+          {
+            "name": "numeroCnpj",
+            "in": "query",
+            "description": "CNPJ do Fornecedor",
+            "type": "string"
+          },
+          {
+            "name": "identificacaoClassificacao",
+            "in": "query",
+            "description": "Identificacao Classificacao do Fornecedor",
+            "type": "string"
+          },
+          {
+            "name": "ordenacao",
+            "in": "query",
+            "description": "Campo para ordenação Ex: codigoFornecedor,nomeRazaoSocial,numeroCnpj,identificacaoClassificacao",
+            "type": "string"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "default": 20,
+            "description": "Limite por pagina",
+            "type": "string"
+          },
+          {
+            "name": "direcao",
+            "in": "query",
+            "description": "asc ou desc",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Listagem dos Fornecedores",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/fornecedor/{codigoFornecedor}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "codigoFornecedor",
+            "required": true,
+            "in": "path",
+            "description": "Código do Fornecedor",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Obtém dados de um fornecedore",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/parceiro": {
+      "get": {
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Listagem dos parceiros",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Parceiros"
+            }
+          }
+        }
+      }
+    },
+    "/parceiro/{ParceiroId}": {
+      "parameters": [
+        {
+          "name": "ParceiroId",
+          "in": "path",
+          "required": true,
+          "description": "Id da parceiro no Hub",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Detalhes do parceiro",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Parceiro"
+            }
+          }
+        }
+      }
+    },
+    "/parceiro/{ParceiroId}/contato": {
+      "parameters": [
+        {
+          "name": "ParceiroId",
+          "in": "path",
+          "required": true,
+          "description": "Id da parceiro no Hub",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Contatos do parceiro",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Parceiro/contato"
+            }
+          }
+        }
+      }
+    },
+    "/parceiro/{ParceiroId}/contato/{ContatoId}": {
+      "parameters": [
+        {
+          "name": "ParceiroId",
+          "in": "path",
+          "required": true,
+          "description": "Id da parceiro no Hub",
+          "type": "string"
+        },
+        {
+          "name": "ContatoId",
+          "in": "path",
+          "required": true,
+          "description": "Id da contato do parceiro no Hub",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Contato do parceiro",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Parceiro/contato"
+            }
+          }
+        }
+      }
+    },
+    "/tipocarga": {
+      "get": {
+        "tags": [
+          "Tipo de Carga"
+        ],
+        "summary": "Listagem dos tipos de carga",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TipoCarga"
+            }
+          }
+        }
+      }
+    },
+    "/tipocarga/{TpCargaId}": {
+      "parameters": [
+        {
+          "name": "TpCargaId",
+          "in": "path",
+          "required": true,
+          "description": "Id da tipo da carga no Hub",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Tipo de Carga"
+        ],
+        "summary": "Detalhes do tipo da carga",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TipoCarga"
+            }
+          }
+        }
+      }
+    },
+    "/parceiro/rota/{_id}": {
+      "parameters": [
+        {
+          "name": "_id",
+          "in": "path",
+          "required": true,
+          "description": "_id da rota na Torre",
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Exclui uma rota do Parceiro",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/parceiro/{idHubParceiro}/tempolimiteaceite": {
+      "parameters": [
+        {
+          "name": "idHubParceiro",
+          "in": "path",
+          "required": false,
+          "description": "Código do Parceiro Comercial",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Listagem do tempo limite de aceite",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/parceiro/tempolimiteaceite/{idTempoLimite}": {
+      "parameters": [
+        {
+          "name": "idTempoLimite",
+          "in": "path",
+          "required": true,
+          "description": "_id do tempo limite",
+          "type": "string"
+        }
+      ],
+      "put": {
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "parameters": [
+          {
+            "name": "tempolimiteaceite",
+            "in": "body",
+            "description": "Limite a ser inserido",
+            "schema": {
+              "$ref": "#/definitions/tempolimiteaceite"
+            }
+          }
+        ],
+        "summary": "Alterar limite de aceite",
+        "description": "Alterar limite de aceite",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Tempo Limite Alterado",
+            "schema": {
+              "$ref": "#/definitions/alteracaotempolimite"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Excluir tempo limite de aceite",
+        "description": "Excluir limite de aceite",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Tempo Limite Alterado",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/parceiro/tempolimiteaceite": {
+      "parameters": [
+        {
+          "name": "tempolimiteaceite",
+          "in": "body",
+          "description": "Limite a ser inserido",
+          "schema": {
+            "$ref": "#/definitions/tempolimiteaceite"
+          }
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "post": {
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Incluir limite de aceite",
+        "description": "Incluir limite de aceite",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Tempo Limite Alterado",
+            "schema": {
+              "$ref": "#/definitions/tempolimiteaceite"
+            }
+          }
+        }
+      }
+    },
+    "/parceiro/{parceiroId}/custooperacao": {
+      "get": {
+        "parameters": [
+          {
+            "name": "parceiroId",
+            "in": "path",
+            "required": true,
+            "description": "id do custo parceiro",
+            "type": "string"
+          },
+          {
+            "name": "codigoTipoOperacao",
+            "in": "query",
+            "description": "codigoTipoOperacao",
+            "type": "string"
+          },
+          {
+            "name": "identificacaoClassificacaoVeiculo",
+            "in": "query",
+            "description": "identificacaoClassificacaoVeiculo",
+            "type": "string"
+          },
+          {
+            "name": "descricaoTipoOperacao",
+            "in": "query",
+            "description": "descricaoTipoOperacao",
+            "type": "string"
+          },
+          {
+            "name": "descricaoClassificacaoVeiculo",
+            "in": "query",
+            "description": "descricaoClassificacaoVeiculo",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Listagem do custo operacional",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/parceiro/{parceiroId}/custooperacao/{custoOperacaoId}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "parceiroId",
+            "in": "path",
+            "required": true,
+            "description": "id do custo parceiro",
+            "type": "string"
+          },
+          {
+            "name": "custoOperacaoId",
+            "in": "path",
+            "required": true,
+            "description": "id do custo operação",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Listagem do custo operacional",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/parceiro/custooperacao": {
+      "post": {
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Inserção de um custo operacional",
+        "description": "Inclusão de um custo operacional",
+        "parameters": [
+          {
+            "name": "custooperacional",
+            "in": "body",
+            "description": "Custo a ser inserido a ser inserido",
+            "schema": {
+              "$ref": "#/definitions/custooperacional"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/custooperacional"
+            }
+          }
+        }
+      }
+    },
+    "/parceiro/custooperacao/{_idCustoOperacao}": {
+      "parameters": [
+        {
+          "name": "_idCustoOperacao",
+          "in": "path",
+          "required": true,
+          "description": "_id do custo operação",
+          "type": "string"
+        }
+      ],
+      "put": {
+        "parameters": [
+          {
+            "name": "_idCustoOperacao",
+            "in": "path",
+            "required": true,
+            "description": "_id do custo operação",
+            "type": "string"
+          },
+          {
+            "name": "custooperacao",
+            "in": "body",
+            "description": "Custo a ser inserido a ser alterado",
+            "schema": {
+              "$ref": "#/definitions/custooperacional"
+            }
+          }
+        ],
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Alterar custo operacional",
+        "description": "Alterar custo operacional",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Custo Alterado",
+            "schema": {
+              "$ref": "#/definitions/alteracustooperacional"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Exclusão de Custo Operação",
+        "description": "Exclusão de Custo Operação",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário Incluido",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        }
+      }
+    },
+    "/parceiro/{parceiroId}/tempomovimento": {
+      "get": {
+        "parameters": [
+          {
+            "name": "parceiroId",
+            "in": "path",
+            "required": true,
+            "description": "id do custo parceiro",
+            "type": "string"
+          },
+          {
+            "name": "hubFornecedorId",
+            "in": "query",
+            "description": "hubFornecedorId",
+            "type": "string"
+          },
+          {
+            "name": "identificacaoClassificacaoVeiculo",
+            "in": "query",
+            "description": "identificacaoClassificacaoVeiculo",
+            "type": "string"
+          },
+          {
+            "name": "descricaoClassificacaoVeiculo",
+            "in": "query",
+            "description": "descricaoClassificacaoVeiculo",
+            "type": "string"
+          },
+          {
+            "name": "descricaoFornecedor",
+            "in": "query",
+            "description": "descricaoFornecedor",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Listagem de tempo movimento",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/parceiro/{parceiroId}/tempomovimento/{tempoMovimentoId}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "parceiroId",
+            "in": "path",
+            "required": true,
+            "description": "id do parceiro",
+            "type": "string"
+          },
+          {
+            "name": "tempoMovimentoId",
+            "in": "path",
+            "required": true,
+            "description": "id do tempo movimento",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "obtém tempo movimento",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/parceiro/tempomovimento": {
+      "post": {
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Inserção de tempo movimento",
+        "description": "Inclusão de tempo movimento",
+        "parameters": [
+          {
+            "name": "tempomovimento",
+            "in": "body",
+            "description": "tempo movimento a ser inserido a ser inserido",
+            "schema": {
+              "$ref": "#/definitions/tempomovimento"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/custooperacional"
+            }
+          }
+        }
+      }
+    },
+    "/parceiro/tempomovimento/{_idTempoMovimento}": {
+      "parameters": [
+        {
+          "name": "_idTempoMovimento",
+          "in": "path",
+          "required": true,
+          "description": "_id do tempo movimento",
+          "type": "string"
+        }
+      ],
+      "put": {
+        "parameters": [
+          {
+            "name": "_idTempoMovimento",
+            "in": "path",
+            "required": true,
+            "description": "_id do tempo movimento",
+            "type": "string"
+          },
+          {
+            "name": "tempomovimento",
+            "in": "body",
+            "description": "tempo movimento a ser alterado",
+            "schema": {
+              "$ref": "#/definitions/tempomovimento"
+            }
+          }
+        ],
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Alterar tempo movimento",
+        "description": "Alterar tempo movimento",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "tempo movimento alterado",
+            "schema": {
+              "$ref": "#/definitions/tempomovimento"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Parceiro Comercial"
+        ],
+        "summary": "Exclusão de tempo movimento",
+        "description": "Exclusão de tempo movimento",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "objeto excluído",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/usuario": {
+      "get": {
+        "parameters": [
+          {
+            "name": "nome",
+            "in": "query",
+            "required": false,
+            "description": "nome do usuário",
+            "type": "string"
+          },
+          {
+            "name": "login",
+            "in": "query",
+            "description": "login do usuário",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Listagem dos Usuários",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Inclusão de Usuário",
+        "description": "Inclusão de Usuário",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "Usuário a ser incluído",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário Incluido",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        }
+      }
+    },
+    "/usuario/{usuarioId}": {
+      "parameters": [
+        {
+          "name": "usuarioId",
+          "in": "path",
+          "required": true,
+          "description": "_id do Usuário",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Obter um usuário",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Alteração de Usuário",
+        "description": "Alteração de Usuário",
+        "parameters": [
+          {
+            "name": "usuarioId",
+            "in": "path",
+            "required": true,
+            "description": "_id do Usuário",
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "body",
+            "description": "Usuário a ser alterado",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário Alterado",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        }
+      }
+    },
+    "/usuario/login/{pLogin}": {
+      "parameters": [
+        {
+          "name": "pLogin",
+          "in": "path",
+          "required": true,
+          "description": "login do Usuário",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Obter um usuário pelo seu Login",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/usuario/{usuarioId}/alterarStatus": {
+      "parameters": [
+        {
+          "name": "usuarioId",
+          "in": "path",
+          "required": true,
+          "description": "_id do Usuário",
+          "type": "string"
+        }
+      ],
+      "put": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Alterar status de Usuário",
+        "description": "Alterat status de Usuário",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário Alterado",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        }
+      }
+    },
+    "/usuario/{usuarioId}/permissao": {
+      "parameters": [
+        {
+          "name": "usuarioId",
+          "in": "path",
+          "required": true,
+          "description": "_id do Usuário",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Listagem das permissões do Usuário",
+        "responses": {
+          "200": {
+            "description": "Permissões do Usuário",
+            "schema": {
+              "$ref": "#/definitions/UsuarioPermissaoArray"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza as permissões do Usuário",
+        "tags": [
+          "Usuários"
+        ],
+        "parameters": [
+          {
+            "name": "usuarioId",
+            "in": "path",
+            "required": true,
+            "description": "_id do Usuário",
+            "type": "string"
+          },
+          {
+            "name": "UsuarioPermissao",
+            "in": "body",
+            "description": "permissão with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/UsuarioPermissaoArray"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User is updated",
+            "schema": {
+              "$ref": "#/definitions/Motorista"
+            }
+          }
+        }
+      }
+    },
+    "/usuario/{usuarioId}/permissao/empresa": {
+      "parameters": [
+        {
+          "name": "usuarioId",
+          "in": "path",
+          "required": true,
+          "description": "_id do Usuário",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Listagem das empresas/filiais aos quais o usuário tem acesso",
+        "responses": {
+          "200": {
+            "description": "Permissões do Usuário",
+            "schema": {
+              "$ref": "#/definitions/UsuarioPermissaoArray"
+            }
+          }
+        }
+      }
+    },
+    "/usuario/{usuarioId}/permissao/parceiro": {
+      "parameters": [
+        {
+          "name": "usuarioId",
+          "in": "path",
+          "required": true,
+          "description": "_id do Usuário",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Listagem dos parceiros aos quais o usuário tem acesso",
+        "responses": {
+          "200": {
+            "description": "Permissões do Usuário - Parceiros",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/usuario/confirmacao/{uuidConfirmacao}": {
+      "parameters": [
+        {
+          "name": "uuidConfirmacao",
+          "in": "path",
+          "required": true,
+          "description": "UUID do usuario",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Obter um usuário",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        }
+      }
+    },
+    "/usuario/{usuarioId}/modulo/{moduloId}/permissao": {
+      "parameters": [
+        {
+          "name": "usuarioId",
+          "in": "path",
+          "required": true,
+          "description": "_id do Usuário",
+          "type": "string"
+        },
+        {
+          "name": "moduloId",
+          "in": "path",
+          "required": true,
+          "description": "_id do Módulo (0 para todos)",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Listagem das permissões do Usuário",
+        "responses": {
+          "200": {
+            "description": "Permissões do Usuário",
+            "schema": {
+              "$ref": "#/definitions/UsuarioPermissaoArray"
+            }
+          }
+        }
+      }
+    },
+    "/usuario/obterporlogin/{pLogin}/empresa/{pIdEmpresa}": {
+      "parameters": [
+        {
+          "name": "pLogin",
+          "in": "path",
+          "required": true,
+          "description": "Login do usuario",
+          "type": "string"
+        },
+        {
+          "name": "pIdEmpresa",
+          "in": "path",
+          "required": true,
+          "description": "Id da empresa",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Listagem das empresas por login e empresa ID",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UsuarioLoginEmpresa"
+            }
+          }
+        }
+      }
+    },
+    "/usuario/obterporlogin/{pLogin}/empresa/{pIdEmpresa}/filial": {
+      "parameters": [
+        {
+          "name": "pLogin",
+          "in": "path",
+          "required": true,
+          "description": "Login do usuario",
+          "type": "string"
+        },
+        {
+          "name": "pIdEmpresa",
+          "in": "path",
+          "required": true,
+          "description": "Id da empresa",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Listagem das filiais e empresa por login e empresa ID",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UsuarioLoginFilial"
+            }
+          }
+        }
+      }
+    },
+    "/usuario/renovarUUID/{pUsuarioId}": {
+      "parameters": [
+        {
+          "name": "pUsuarioId",
+          "in": "path",
+          "required": true,
+          "description": "_id do usuario",
+          "type": "string"
+        }
+      ],
+      "put": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Atualiza UUIDConfirmacao, dataConfirmacao do usuario e notifica por e-mail a solicitação de troca de senha",
+        "responses": {
+          "200": {
+            "description": "Atualizado com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/motorista": {
+      "get": {
+        "parameters": [
+          {
+            "name": "ordenacao",
+            "in": "query",
+            "description": "Campo para ordenação Ex: codigoMotorista,nomeMotorista,numeroCPF,codigoClassificacao,descricaoClassificacao,descricaoSituacao",
+            "type": "string"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "default": 20,
+            "description": "Limite por pagina",
+            "type": "string"
+          },
+          {
+            "name": "direcao",
+            "in": "query",
+            "description": "asc ou desc",
+            "type": "string"
+          },
+          {
+            "name": "codigoMotorista",
+            "in": "query",
+            "description": "Código do Motorista",
+            "type": "string"
+          },
+          {
+            "name": "codigoClassificacao",
+            "in": "query",
+            "description": "Código da Classificação do Motorista",
+            "type": "string"
+          },
+          {
+            "name": "nomeMotorista",
+            "in": "query",
+            "description": "Nome do Motorista",
+            "type": "string"
+          },
+          {
+            "name": "numeroCPF",
+            "in": "query",
+            "description": "CPF do Motorista",
+            "type": "string"
+          },
+          {
+            "name": "identificacaoStatusGestoraRisco",
+            "in": "query",
+            "description": "Status Gestora de Risco",
+            "type": "string"
+          },
+          {
+            "name": "codigoSituacao",
+            "in": "query",
+            "description": "Código da Situação A - Ativo, I - Inativo, L - AGUARDANDO LIBERACAO",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Listagem dos Motoristas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/motorista/classificacao": {
+      "parameters": [
+        {
+          "name": "ordenacao",
+          "in": "query",
+          "description": "Campo para ordenação Ex: codigoClassificacao,descricaoClassificacao",
+          "type": "string"
+        },
+        {
+          "name": "direcao",
+          "in": "query",
+          "description": "asc ou desc",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Listagem das classificações do motorista",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/motorista/statusGestorRisco": {
+      "parameters": [
+        {
+          "name": "ordenacao",
+          "in": "query",
+          "description": "Campo para ordenação Ex: identificacaoStatusGestoraRisco,descricaoStatusGestorRisco",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Listagem dos status de Gestor de Risco",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/motorista/situacao": {
+      "get": {
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Listagem da situação do Motorista",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/motorista/{motoristaId}/ocorrencias": {
+      "parameters": [
+        {
+          "name": "motoristaId",
+          "in": "path",
+          "required": true,
+          "description": "Código do Motorista",
+          "type": "string"
+        },
+        {
+          "name": "ordenacao",
+          "in": "query",
+          "description": "Campo para ordenação Ex: nomeProprietario",
+          "type": "string"
+        },
+        {
+          "name": "pagina",
+          "in": "query",
+          "description": "Numero da pagina de retorno",
+          "type": "string"
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "description": "Limite por pagina",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Listagem das ocorrencias por Motorista",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/motorista/{motoristaId}/dadosPessoais": {
+      "parameters": [
+        {
+          "name": "motoristaId",
+          "in": "path",
+          "required": true,
+          "description": "id do Motorista no Hub",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Obter dados pessoais de um motorista",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/motorista/dadosComplementares": {
+      "post": {
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Inclusão ou Atualização de Dados complementares de um Motorista",
+        "description": "Inclusão ou Atualização de Motorista",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "Motorista a ser atualizado/incluído",
+            "schema": {
+              "$ref": "#/definitions/Motorista"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Motorista Incluido",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/motorista/{hubMotoristaId}/dadosComplementares": {
+      "parameters": [
+        {
+          "name": "hubMotoristaId",
+          "in": "path",
+          "required": true,
+          "description": "id do Motorista no Hub",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Obter dados complementares de um motorista",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/motorista/{motoristaId}/outrasInformacoes": {
+      "parameters": [
+        {
+          "name": "motoristaId",
+          "in": "path",
+          "required": true,
+          "description": "id do Motorista no Hub",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Obter Outras Informações de um motorista",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/motorista/{motoristaId}/documentacao": {
+      "parameters": [
+        {
+          "name": "motoristaId",
+          "in": "path",
+          "required": true,
+          "description": "id do Motorista no Hub",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Obter documentação de um motorista",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/motorista/{motoristaId}/cursosLicencas/vencido": {
+      "parameters": [
+        {
+          "name": "motoristaId",
+          "in": "path",
+          "required": true,
+          "description": "id do Motorista no Hub",
+          "default": 4669,
+          "type": "string"
+        },
+        {
+          "name": "dataInicialValidade",
+          "in": "query",
+          "required": false,
+          "description": "Data Inicial Validade (Formato YYYY-MM-DD)",
+          "type": "string"
+        },
+        {
+          "name": "dataFinalValidade",
+          "in": "query",
+          "required": false,
+          "description": "Data Final Validade (Formato YYYY-MM-DD)",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Listagem dos cursos e exames de um motorista",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/motorista/{motoristaId}/cursosLicencas/valido": {
+      "parameters": [
+        {
+          "name": "motoristaId",
+          "in": "path",
+          "required": true,
+          "description": "id do Motorista no Hub",
+          "default": 4669,
+          "type": "string"
+        },
+        {
+          "name": "dataInicialValidade",
+          "in": "query",
+          "required": false,
+          "description": "Data Inicial Validade (Formato YYYY-MM-DD)",
+          "type": "string"
+        },
+        {
+          "name": "dataFinalValidade",
+          "in": "query",
+          "required": false,
+          "description": "Data Final Validade (Formato YYYY-MM-DD)",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Listagem dos cursos e exames de um motorista",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/motorista/{motoristaId}/gerenciamentoRisco": {
+      "parameters": [
+        {
+          "name": "motoristaId",
+          "in": "path",
+          "required": true,
+          "description": "id do Motorista no Hub",
+          "default": 3458,
+          "type": "string"
+        },
+        {
+          "name": "ordenacao",
+          "in": "query",
+          "description": "Campo para ordenação Ex: codigoGerenciadorRisco,nomeGestoraRisco,numeroCAD,tipoPadroGR,identificacaoStatusGestorRisco,descricaoStatusGestorRisco,dataValidade,dataGeracaoRisco,descricaoObservacaoGestorRisco",
+          "type": "string"
+        },
+        {
+          "name": "direcao",
+          "in": "query",
+          "description": "asc ou desc",
+          "type": "string"
+        },
+        {
+          "name": "pagina",
+          "in": "query",
+          "description": "Numero da pagina de retorno",
+          "type": "string"
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "description": "Limite por pagina",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Obtém a listagem do histórico referente ao gerenciamento de Risco",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/motorista/{motoristaId}/anexo": {
+      "parameters": [
+        {
+          "name": "motoristaId",
+          "in": "path",
+          "required": true,
+          "description": "id do Motorista no Hub",
+          "default": 3458,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Obtém a listagem dos anexos do Motorista",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/motorista/anexo/{hubAnexoId}": {
+      "parameters": [
+        {
+          "name": "hubAnexoId",
+          "in": "path",
+          "required": true,
+          "description": "id do Anexo no Hub",
+          "default": 182,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Motoristas"
+        ],
+        "summary": "Obtém o registro do anexo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo": {
+      "parameters": [
+        {
+          "name": "codigoVeiculo",
+          "in": "query",
+          "description": "Código do Veículo  ",
+          "type": "string"
+        },
+        {
+          "name": "identificacaoPlacaVeiculo",
+          "in": "query",
+          "description": "Placa",
+          "type": "string"
+        },
+        {
+          "name": "identificacaoTipoVeiculo",
+          "in": "query",
+          "description": "Tipo de veículo",
+          "type": "string"
+        },
+        {
+          "name": "codigoClassificacao",
+          "in": "query",
+          "description": "codigo da Classificação",
+          "type": "number"
+        },
+        {
+          "name": "codigoMarca",
+          "in": "query",
+          "description": "Codigo da Marca",
+          "type": "string"
+        },
+        {
+          "name": "codigoModeloVeiculo",
+          "in": "query",
+          "description": "Codigo Modelo",
+          "type": "string"
+        },
+        {
+          "name": "nomeProprietario",
+          "in": "query",
+          "description": "Proprietário",
+          "type": "string"
+        },
+        {
+          "name": "identificacaoTipoVinculoProprietario",
+          "in": "query",
+          "description": "Vínculo",
+          "type": "string"
+        },
+        {
+          "name": "identificacaoSituacaoVeiculo",
+          "in": "query",
+          "description": "Situação",
+          "type": "string"
+        },
+        {
+          "name": "ordenacao",
+          "in": "query",
+          "description": "Campo para ordenação Ex: nomeProprietario",
+          "type": "string"
+        },
+        {
+          "name": "pagina",
+          "in": "query",
+          "description": "Numero da pagina de retorno",
+          "type": "string"
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "description": "Limite por pagina",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Listagem dos veículos",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Veiculos"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/marca": {
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Listagem das Marcas de veiculos",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/situacaoVeiculo": {
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Listagem das Situações dos veiculos",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/tipoVeiculo": {
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Listagem dos tipos de veiculos",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/tipoVinculo": {
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Listagem dos tipos de Vinculo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/classificacao": {
+      "parameters": [
+        {
+          "name": "ordenacao",
+          "in": "query",
+          "description": "Campo para ordenação Ex: codigoClassificacao,descricaoClassificacao",
+          "type": "string"
+        },
+        {
+          "name": "direcao",
+          "in": "query",
+          "description": "asc ou desc",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Listagem das classificações de veiculos",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/classificacao/{pCodigo}": {
+      "parameters": [
+        {
+          "name": "pCodigo",
+          "in": "path",
+          "description": "Código da Classificação do Veículo",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Obtém uma classificação do veículo pelo código",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/regiaoOperacao": {
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Listagem das regioes de operações",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/ocorrencias": {
+      "parameters": [
+        {
+          "name": "codigoVeiculo",
+          "in": "query",
+          "description": "Código do Veículo  ",
+          "type": "string"
+        },
+        {
+          "name": "ordenacao",
+          "in": "query",
+          "description": "Campo para ordenação Ex: nomeProprietario",
+          "type": "string"
+        },
+        {
+          "name": "pagina",
+          "in": "query",
+          "description": "Numero da pagina de retorno",
+          "type": "string"
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "description": "Limite por pagina",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Listagem das ocorrencias por veiculo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/{pCodigoVeiculo}": {
+      "parameters": [
+        {
+          "name": "pCodigoVeiculo",
+          "required": true,
+          "in": "path",
+          "description": "Código do Veículo  ",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Obter um veiculo por codigo do veiculo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/{pCodigoVeiculo}/parametrosLicencas": {
+      "parameters": [
+        {
+          "name": "pCodigoVeiculo",
+          "required": true,
+          "in": "path",
+          "description": "Código do Veículo  ",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Obter parametros, Licencas de um veiculo por codigo do veiculo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/{pMarcaID}/modelo": {
+      "parameters": [
+        {
+          "name": "pMarcaID",
+          "in": "path",
+          "required": true,
+          "description": "_id da Marca",
+          "type": "string"
+        },
+        {
+          "name": "ordenacao",
+          "in": "query",
+          "description": "Campo para ordenação Ex: nomeProprietario",
+          "type": "string"
+        },
+        {
+          "name": "pagina",
+          "in": "query",
+          "description": "Numero da pagina de retorno",
+          "type": "string"
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "description": "Limite por pagina",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Listagem dos modelos de veiculos por marca",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/{pCodigoOperacao}/regiaoOperacaoVigencia": {
+      "parameters": [
+        {
+          "name": "pCodigoOperacao",
+          "in": "path",
+          "required": true,
+          "description": "Codigo da regiao operação",
+          "type": "string"
+        },
+        {
+          "name": "vigenciaRegiaoOperacao",
+          "in": "query",
+          "required": true,
+          "description": "Data da vigencia regiao operação",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Listagem das regiões de operação",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/{pCodigoVeiculo}/cursosLicencas/vencido": {
+      "parameters": [
+        {
+          "name": "pCodigoVeiculo",
+          "in": "path",
+          "required": true,
+          "description": "Codigo do Veiculo",
+          "type": "string"
+        },
+        {
+          "name": "ordenacao",
+          "in": "query",
+          "description": "Campo para ordenação Ex: nomeProprietario",
+          "type": "string"
+        },
+        {
+          "name": "pagina",
+          "in": "query",
+          "description": "Numero da pagina de retorno",
+          "type": "string"
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "description": "Limite por pagina",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Listagem cursos licenças vencidos",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/{pCodigoVeiculo}/cursosLicencas/valido": {
+      "parameters": [
+        {
+          "name": "pCodigoVeiculo",
+          "in": "path",
+          "required": true,
+          "description": "Codigo do Veiculo",
+          "type": "string"
+        },
+        {
+          "name": "ordenacao",
+          "in": "query",
+          "description": "Campo para ordenação Ex: nomeProprietario",
+          "type": "string"
+        },
+        {
+          "name": "pagina",
+          "in": "query",
+          "description": "Numero da pagina de retorno",
+          "type": "string"
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "description": "Limite por pagina",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Listagem dos cursos e licenças válidas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/{pCodigoVeiculo}/custoFixo": {
+      "parameters": [
+        {
+          "name": "pCodigoVeiculo",
+          "in": "path",
+          "default": "AAA1111",
+          "required": true,
+          "description": "Codigo do Veiculo",
+          "type": "string"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Inclusão custo fixo",
+        "description": "Inclusão do custo Fixo por veiculo",
+        "parameters": [
+          {
+            "name": "Custo Fixo",
+            "in": "body",
+            "description": "Custo Fixo a ser incluído",
+            "schema": {
+              "$ref": "#/definitions/CustoFixo"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Custo Fixo Incluido",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Listagem dos custos fixos",
+        "parameters": [
+          {
+            "name": "ordenacao",
+            "in": "query",
+            "description": "Campo para ordenação Ex: dataVigenciaCustoFixo",
+            "type": "string"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "description": "Limite por pagina",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/custoFixo/{pCustoFixo}": {
+      "parameters": [
+        {
+          "name": "pCustoFixo",
+          "in": "path",
+          "description": "Custo Fixo a ser excluido",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Obter um custo Fixo por codigo do custo Fixo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Alteração do custo fixo ",
+        "description": "Alteração do custo fixo  por _id custo fixo ",
+        "parameters": [
+          {
+            "name": "Custo Fixo",
+            "in": "body",
+            "description": "Custo Fixo a ser incluído",
+            "schema": {
+              "$ref": "#/definitions/CustoFixo"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Custo fixo Incluido",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Deleta o custo Fixo",
+        "description": "Deleta o custo Fixo por ID",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Custo Fixo Excluido",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/{pCodigoVeiculo}/custoVariavel": {
+      "parameters": [
+        {
+          "name": "pCodigoVeiculo",
+          "in": "path",
+          "required": true,
+          "description": "Codigo do Veiculo",
+          "default": "AAA111",
+          "type": "string"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Inclusão custo variavel",
+        "description": "Inclusão do custo variavel por veiculo",
+        "parameters": [
+          {
+            "name": "Custo Variavel",
+            "in": "body",
+            "description": "Custo Variavel a ser incluído",
+            "schema": {
+              "$ref": "#/definitions/CustoVariavel"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Custo Variavel Incluido",
+            "schema": {
+              "$ref": "#/definitions/Motorista"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Listagem do custo variavel",
+        "parameters": [
+          {
+            "name": "ordenacao",
+            "in": "query",
+            "description": "Campo para ordenação Ex: dataVigenciaCustoVariavel",
+            "type": "string"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "description": "Limite por pagina",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/{pCodigoClassificacao}/verificarClassificacao/custoVariavel": {
+      "parameters": [
+        {
+          "name": "pCodigoClassificacao",
+          "in": "path",
+          "description": "Codigo da Classificação do veiculo",
+          "type": "number"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Verifica a classificação do veículo por tivo veículo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/custoVariavel/{pCustoVariavel}": {
+      "parameters": [
+        {
+          "name": "pCustoVariavel",
+          "in": "path",
+          "description": "_id do Custo Variavel",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Obter um custo variavel por codigo do custo Fixo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Motoristas"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Alteração do custo variavel ",
+        "description": "Alteração do custo variavel  por _id custo variavel ",
+        "parameters": [
+          {
+            "name": "custo variavel",
+            "in": "body",
+            "description": "custo variavel a ser alterado",
+            "schema": {
+              "$ref": "#/definitions/CustoVariavel"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "custo variavel alterado",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Veículos"
+        ],
+        "summary": "Deleta o custo variavel",
+        "description": "Deleta o custo variavel por ID",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Custo variavel Excluido",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/rota": {
+      "parameters": [
+        {
+          "name": "codigoLinha",
+          "in": "query",
+          "description": "Código da linha (Código da Rota)  ",
+          "type": "string"
+        },
+        {
+          "name": "identificaoSituacaoLinha",
+          "in": "query",
+          "description": "Identificação da Situação da Linha",
+          "type": "string"
+        },
+        {
+          "name": "descricaoStatusLinha",
+          "in": "query",
+          "description": "Descrição do status da linha",
+          "type": "string"
+        },
+        {
+          "name": "codigoPontoInicial",
+          "in": "query",
+          "description": "Codigo do pont inicial",
+          "type": "string"
+        },
+        {
+          "name": "nomeMunicipioInicial",
+          "in": "query",
+          "description": "Nome do município inicial",
+          "type": "string"
+        },
+        {
+          "name": "siglaUFMunicipioInicial",
+          "in": "query",
+          "description": "Siga da UF do municipio inicial",
+          "type": "string"
+        },
+        {
+          "name": "codigoPontoFinal",
+          "in": "query",
+          "description": "Código do ponto inicial",
+          "type": "string"
+        },
+        {
+          "name": "nomeMunicipioFinal",
+          "in": "query",
+          "description": "Nome do município final",
+          "type": "string"
+        },
+        {
+          "name": "siglaUFMunicipioFinal",
+          "in": "query",
+          "description": "Siga da UF do municipio final",
+          "type": "string"
+        },
+        {
+          "name": "ordenacao",
+          "in": "query",
+          "description": "Campo para ordenação Ex: codigoLinha,identificaoSituacaoLinha,descricaoStatusLinha,codigoPontoInicial,nomeMunicipioInicial,siglaUFMunicipioInicial,codigoPontoFinal,nomeMunicipioFinal,siglaUFMunicipioFinal",
+          "type": "string"
+        },
+        {
+          "name": "pagina",
+          "in": "query",
+          "description": "Numero da pagina de retorno",
+          "type": "string"
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "default": 20,
+          "description": "Limite por pagina",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Rotas"
+        ],
+        "summary": "Listagem das Rotas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/rota/{hubRotaId}": {
+      "parameters": [
+        {
+          "name": "hubRotaId",
+          "in": "path",
+          "description": "Código da linha (Código da Rota)  ",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Rotas"
+        ],
+        "summary": "Obtém dados de uma Rota",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/rota/{hubRotaId}/dadosComplementares": {
+      "parameters": [
+        {
+          "name": "hubRotaId",
+          "in": "path",
+          "required": true,
+          "description": "Código da linha (Código da Rota)  ",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Rotas"
+        ],
+        "summary": "Lista dados complementares da Rota",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/rota/dadosComplementares": {
+      "post": {
+        "parameters": [
+          {
+            "name": "Rota",
+            "in": "body",
+            "description": "Rota a ser inclulída",
+            "schema": {
+              "$ref": "#/definitions/RotaDadoComplementar"
+            }
+          }
+        ],
+        "tags": [
+          "Rotas"
+        ],
+        "summary": "Insere ou atualiza dados complementares da Rota",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/rota/dadosComplementares/{dadoComplementarId}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "dadoComplementarId",
+            "in": "path",
+            "required": true,
+            "description": "_id do Dado Complementar da Rota",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Rotas"
+        ],
+        "summary": "Obtém dados complementar da rota",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "dadoComplementarId",
+            "in": "path",
+            "required": true,
+            "description": "_id do Dado Complementar da Rota",
+            "type": "string"
+          },
+          {
+            "name": "dadoComplementar",
+            "in": "body",
+            "description": "dado complementar da rota",
+            "type": "string",
+            "schema": {
+              "$ref": "#/definitions/RotaDadoComplementar"
+            }
+          }
+        ],
+        "tags": [
+          "Rotas"
+        ],
+        "summary": "Atualiza o dados complementar da rota",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "dadoComplementarId",
+            "in": "path",
+            "required": true,
+            "description": "_id do Dado Complementar da Rota",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Rotas"
+        ],
+        "summary": "deleta o dado complementar da Rota",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/rota/{hubRotaId}/trecho": {
+      "parameters": [
+        {
+          "name": "hubRotaId",
+          "in": "path",
+          "description": "Código da linha (Código da Rota)  ",
+          "type": "string"
+        },
+        {
+          "name": "ordenacao",
+          "in": "query",
+          "description": "Campo para ordenação Ex: sequenciaTrecho,codigoTrecho,quantidadeKmsTrecho,tipoCalculo",
+          "type": "string"
+        },
+        {
+          "name": "pagina",
+          "in": "query",
+          "description": "Numero da pagina de retorno",
+          "type": "string"
+        },
+        {
+          "name": "limite",
+          "in": "query",
+          "default": 20,
+          "description": "Limite por pagina",
+          "type": "string"
+        },
+        {
+          "name": "direcao",
+          "in": "query",
+          "description": "asc ou desc",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Rotas"
+        ],
+        "summary": "Lista os trechos da Rota",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/poligono": {
+      "post": {
+        "parameters": [
+          {
+            "name": "Polígono",
+            "in": "body",
+            "description": "Polígono a ser inclulído",
+            "schema": {
+              "$ref": "#/definitions/Poligono"
+            }
+          }
+        ],
+        "tags": [
+          "Polígonos"
+        ],
+        "summary": "Insere um Poligono",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      },
+      "get": {
+        "parameters": [
+          {
+            "name": "codigoPoligono",
+            "in": "query",
+            "description": "codigo Poligono"
+          },
+          {
+            "name": "descricao",
+            "in": "query",
+            "description": "decricao do Poligono"
+          },
+          {
+            "name": "tipoPoligonoId",
+            "in": "query",
+            "description": "tipoPoligonoId _id do Tipo Poligano"
+          },
+          {
+            "name": "hubParceiroId",
+            "in": "query",
+            "description": "hubParceiroId do parceiro"
+          }
+        ],
+        "tags": [
+          "Polígonos"
+        ],
+        "summary": "Listagem do Poligono",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/poligono/{pId}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "pId",
+            "in": "path",
+            "required": true,
+            "description": "_id do Poligono",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Polígonos"
+        ],
+        "summary": "Obter um Poligono",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "pId",
+            "in": "path",
+            "required": true,
+            "description": "_id do Poligono",
+            "type": "string"
+          },
+          {
+            "name": "poligono",
+            "in": "body",
+            "description": "Poligono",
+            "type": "string",
+            "schema": {
+              "$ref": "#/definitions/Poligono"
+            }
+          }
+        ],
+        "tags": [
+          "Polígonos"
+        ],
+        "summary": "Atualiza o Poligono",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "pId",
+            "in": "path",
+            "required": true,
+            "description": "_id do Poligono",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Polígonos"
+        ],
+        "summary": "deleta o Poligono",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/poligono/{pId}/alterarStatus": {
+      "put": {
+        "parameters": [
+          {
+            "name": "pId",
+            "in": "path",
+            "required": true,
+            "description": "_id do Poligono",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Polígonos"
+        ],
+        "summary": "Ativa ou Inativa um Poligono",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/poligono/tipo": {
+      "post": {
+        "parameters": [
+          {
+            "name": "Tipo Polígono",
+            "in": "body",
+            "description": "Tipo Polígono a ser inclulído",
+            "schema": {
+              "$ref": "#/definitions/TipoPoligono"
+            }
+          }
+        ],
+        "tags": [
+          "Polígonos"
+        ],
+        "summary": "Insere um Tipo Poligono",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Polígonos"
+        ],
+        "summary": "Listagem Tipo Poligono",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/disponibilidade/motorista": {
+      "get": {
+        "parameters": [
+          {
+            "name": "placa",
+            "in": "query",
+            "default": "AAA1111",
+            "description": "Placa do Veículo",
+            "type": "string"
+          },
+          {
+            "name": "nomeMotorista",
+            "in": "query",
+            "default": "",
+            "description": "Nome do Motorista",
+            "type": "string"
+          },
+          {
+            "name": "codigoMotorista",
+            "in": "query",
+            "default": "5013",
+            "description": "Código do Motorista",
+            "type": "string"
+          },
+          {
+            "name": "numeroCPF",
+            "in": "query",
+            "description": "CPF do Motorista",
+            "type": "string"
+          },
+          {
+            "name": "identificacaoRegistrado",
+            "in": "query",
+            "default": "N",
+            "description": "S ou N (Indica se é um motorista registrado da Mirassol)",
+            "type": "string"
+          },
+          {
+            "name": "categoriaCNH",
+            "in": "query",
+            "default": "A",
+            "required": true,
+            "description": "Categoria Exigida",
+            "type": "string"
+          },
+          {
+            "name": "situacao",
+            "in": "query",
+            "default": "D",
+            "required": true,
+            "description": "Situção do Motorista D) disponível T) Todos",
+            "type": "string"
+          },
+          {
+            "name": "periodoViagemInicial",
+            "in": "query",
+            "default": "2021-02-11T10:00:00.000Z",
+            "required": true,
+            "description": "Data Início da Viagem",
+            "type": "string"
+          },
+          {
+            "name": "periodoViagemFinal",
+            "in": "query",
+            "default": "2021-02-11T18:00:00.000Z",
+            "required": true,
+            "description": "Data Final Validade",
+            "type": "string"
+          },
+          {
+            "name": "ordenacao",
+            "in": "query",
+            "description": "Campo para ordenação: exemplo codigoMotorista",
+            "type": "string"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "default": 20,
+            "description": "Limite por pagina",
+            "type": "string"
+          },
+          {
+            "name": "direcao",
+            "in": "query",
+            "description": "asc ou desc",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Disponibilidade"
+        ],
+        "summary": "Listagem dos motoristas disponíveis",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/disponibilidade/{pCodigoMotorista}/motorista": {
+      "get": {
+        "parameters": [
+          {
+            "name": "pCodigoMotorista",
+            "in": "path",
+            "default": "5013",
+            "required": true,
+            "description": "Código do Motorista",
+            "type": "string"
+          },
+          {
+            "name": "periodoViagemInicial",
+            "in": "query",
+            "default": "2021-02-11T10:00:00.000Z",
+            "required": true,
+            "description": "Data Início da Viagem",
+            "type": "string"
+          },
+          {
+            "name": "periodoViagemFinal",
+            "in": "query",
+            "default": "2021-02-11T18:00:00.000Z",
+            "required": true,
+            "description": "Data Final Validade",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Disponibilidade"
+        ],
+        "summary": "Listagem dos motoristas disponíveis",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/disponibilidade/veiculo": {
+      "get": {
+        "parameters": [
+          {
+            "name": "ordenacao",
+            "in": "query",
+            "description": "Campo para ordenação",
+            "type": "string"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "default": 20,
+            "description": "Limite por pagina",
+            "type": "string"
+          },
+          {
+            "name": "direcao",
+            "in": "query",
+            "description": "asc ou desc",
+            "type": "string"
+          },
+          {
+            "name": "codigoClassificacaoVeiculo",
+            "in": "query",
+            "default": "",
+            "description": "Código da classificação do veículo",
+            "type": "string"
+          },
+          {
+            "name": "codigoTipoVeiculo",
+            "in": "query",
+            "default": "",
+            "description": "Código do tipo do veículo",
+            "type": "string"
+          },
+          {
+            "name": "identificacaoVeiculoProprio",
+            "in": "query",
+            "default": "S",
+            "description": "S ou N para verificação se é veículo próprio",
+            "type": "string"
+          },
+          {
+            "name": "placa",
+            "in": "query",
+            "default": "ASQ-1777",
+            "description": "Placa do veículo",
+            "type": "string"
+          },
+          {
+            "name": "tracionador",
+            "in": "query",
+            "default": "S",
+            "description": "Veiculos Tracionadores S) Não Tracionadores N) Vazio Todos",
+            "type": "string"
+          },
+          {
+            "name": "periodoViagemInicial",
+            "in": "query",
+            "default": "2019-01-26T18:05:41.279Z",
+            "required": true,
+            "description": "Data retirada refrente a Programação de carga",
+            "type": "string"
+          },
+          {
+            "name": "periodoViagemFinal",
+            "in": "query",
+            "default": "2019-01-27T13:16:41.279Z",
+            "required": true,
+            "description": "Data entrega refrente a Programação de carga",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Disponibilidade"
+        ],
+        "summary": "Listagem dos veículos disponíveis",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/disponibilidade/{pPlaca}/veiculo": {
+      "get": {
+        "parameters": [
+          {
+            "name": "pPlaca",
+            "in": "path",
+            "default": "ASQ-1777",
+            "required": true,
+            "description": "Placa do veículo",
+            "type": "string"
+          },
+          {
+            "name": "periodoViagemInicial",
+            "in": "query",
+            "default": "2021-02-11T10:00:00.000Z",
+            "required": true,
+            "description": "Data Início da Viagem",
+            "type": "string"
+          },
+          {
+            "name": "periodoViagemFinal",
+            "in": "query",
+            "default": "2021-02-11T18:00:00.000Z",
+            "required": true,
+            "description": "Data Final Validade",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Disponibilidade"
+        ],
+        "summary": "Listagem dos motoristas disponíveis",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/pedido": {
+      "get": {
+        "parameters": [
+          {
+            "name": "ordenacao",
+            "in": "query",
+            "description": "Campo para ordenação",
+            "type": "string"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "default": 20,
+            "description": "Limite por pagina",
+            "type": "string"
+          },
+          {
+            "name": "direcao",
+            "in": "query",
+            "description": "asc ou desc",
+            "type": "string"
+          },
+          {
+            "name": "numeroPedido",
+            "in": "query",
+            "description": "Numero do Pedido",
+            "type": "string"
+          },
+          {
+            "name": "dataRetiradaInicial",
+            "in": "query",
+            "default": "2020-03-23T04:00:00.000Z",
+            "required": false,
+            "description": "Data Retirada Inicial ",
+            "type": "string"
+          },
+          {
+            "name": "dataRetiradaFinal",
+            "in": "query",
+            "default": "2020-03-23T04:00:00.000Z",
+            "required": false,
+            "description": "Data Retirada ",
+            "type": "string"
+          },
+          {
+            "name": "dataEntregaInicial",
+            "in": "query",
+            "default": "2020-03-23T04:00:00.000Z",
+            "required": false,
+            "description": "Data Entrega Inicial ",
+            "type": "string"
+          },
+          {
+            "name": "dataEntregaFinal",
+            "in": "query",
+            "default": "2020-03-23T04:00:00.000Z",
+            "required": false,
+            "description": "Data Entrega Final ",
+            "type": "string"
+          },
+          {
+            "name": "dataPrevisaoChegadaInicial",
+            "in": "query",
+            "default": "2020-03-23T04:00:00.000Z",
+            "required": false,
+            "description": "Data Previsão Chegada Inicial ",
+            "type": "string"
+          },
+          {
+            "name": "dataPrevisaoChegadaFinal",
+            "in": "query",
+            "default": "2020-03-23T04:00:00.000Z",
+            "required": false,
+            "description": "Data Previsão Chegada Final ",
+            "type": "string"
+          },
+          {
+            "name": "codigoFilial",
+            "in": "query",
+            "description": "Codigo Filial",
+            "type": "number"
+          },
+          {
+            "name": "codigoTipoCarga",
+            "in": "query",
+            "description": "Codigo Tipo Carga",
+            "type": "Number"
+          },
+          {
+            "name": "descricaoStatusPedidoTorre",
+            "in": "query",
+            "description": "Descrição do status do pedido",
+            "type": "String"
+          },
+          {
+            "name": "codigoStatusPedidoTorre",
+            "in": "query",
+            "description": "Código do status do pedido",
+            "type": "String"
+          },
+          {
+            "name": "placaVeiculo",
+            "in": "query",
+            "description": "Placa do veículo",
+            "type": "string"
+          },
+          {
+            "name": "codigoLinha",
+            "in": "query",
+            "description": "codigo da linha (código da Rota)",
+            "type": "string"
+          },
+          {
+            "name": "codigoRemetente",
+            "in": "query",
+            "default": "",
+            "description": "código do remetente",
+            "type": "string"
+          },
+          {
+            "name": "codigoDestinatario",
+            "in": "query",
+            "default": "",
+            "description": "código do destinatário",
+            "type": "string"
+          },
+          {
+            "name": "diferencial",
+            "in": "query",
+            "default": "RODOTREM",
+            "description": "diferencial",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Pedidos"
+        ],
+        "summary": "Listagem Pedidos",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "numeroPedido",
+            "in": "query",
+            "required": "true",
+            "description": "Numero do Pedido",
+            "default": "16399",
+            "type": "string"
+          },
+          {
+            "name": "codigoFilial",
+            "in": "query",
+            "description": "Codigo Filial",
+            "default": "24",
+            "type": "number"
+          },
+          {
+            "name": "pedido",
+            "in": "body",
+            "description": "Dados atualizar o pedido",
+            "schema": {
+              "$ref": "#/definitions/Pedido"
+            }
+          }
+        ],
+        "tags": [
+          "Pedidos"
+        ],
+        "summary": "Atualizar o Pedido",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Pedido"
+            }
+          }
+        }
+      }
+    },
+    "/pedido/agrupados": {
+      "get": {
+        "parameters": [
+          {
+            "name": "numeroPedido",
+            "in": "query",
+            "required": "true",
+            "description": "Numero do Pedido",
+            "type": "string"
+          },
+          {
+            "name": "codigoFilial",
+            "in": "query",
+            "description": "Codigo Filial",
+            "type": "number"
+          },
+          {
+            "name": "ordenacao",
+            "in": "query",
+            "description": "Campo para ordenação",
+            "type": "string"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "default": 20,
+            "description": "Limite por pagina",
+            "type": "string"
+          },
+          {
+            "name": "direcao",
+            "in": "query",
+            "description": "asc ou desc",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Pedidos"
+        ],
+        "summary": "Listagem Pedidos",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/pedido/obter": {
+      "get": {
+        "parameters": [
+          {
+            "name": "numeroPedido",
+            "in": "query",
+            "default": 98040,
+            "required": "true",
+            "description": "Numero do Pedido",
+            "type": "string"
+          },
+          {
+            "name": "codigoFilial",
+            "in": "query",
+            "required": "true",
+            "default": 38,
+            "description": "Codigo Filial",
+            "type": "number"
+          }
+        ],
+        "tags": [
+          "Pedidos"
+        ],
+        "summary": "Obter um Pedido",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/pedido/composicaoCarga": {
+      "get": {
+        "parameters": [
+          {
+            "name": "numeroPedido",
+            "in": "query",
+            "required": "true",
+            "default": 98040,
+            "description": "Numero do Pedido",
+            "type": "string"
+          },
+          {
+            "name": "codigoFilial",
+            "in": "query",
+            "required": "true",
+            "default": 38,
+            "description": "Codigo Filial",
+            "type": "number"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "default": 20,
+            "description": "Limite por pagina",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Pedidos"
+        ],
+        "summary": "Listar Composicao Carga",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/pedido/programacaoVeiculo": {
+      "get": {
+        "parameters": [
+          {
+            "name": "numeroProgramacaoVeiculo",
+            "in": "query",
+            "required": "true",
+            "default": 98040,
+            "description": "Numero da Programacao Veiculo",
+            "type": "string"
+          },
+          {
+            "name": "codigoFilial",
+            "in": "query",
+            "required": "true",
+            "default": 38,
+            "description": "Codigo Filial",
+            "type": "number"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "default": 20,
+            "description": "Limite por pagina",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Pedidos"
+        ],
+        "summary": "Listar programacao Veiculo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/pedido/status": {
+      "get": {
+        "tags": [
+          "Pedidos"
+        ],
+        "summary": "Listagem dos status Pedidos",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/pedido/emViagem": {
+      "get": {
+        "tags": [
+          "Pedidos"
+        ],
+        "summary": "Listagem dos Pedidos em viagem",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/pedido/novosAndEmAlocacao": {
+      "get": {
+        "tags": [
+          "Pedidos"
+        ],
+        "summary": "Listagem dos Pedidos Novos e alocação",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/pedido/pontosPassagem": {
+      "get": {
+        "parameters": [
+          {
+            "name": "numeroPedido",
+            "in": "query",
+            "required": "true",
+            "default": 16399,
+            "description": "Numero do Pedido",
+            "type": "string"
+          },
+          {
+            "name": "codigoFilial",
+            "in": "query",
+            "required": "true",
+            "default": 24,
+            "description": "Codigo Filial",
+            "type": "number"
+          }
+        ],
+        "tags": [
+          "Pedidos"
+        ],
+        "summary": "Listagem dos Pedidos Novos e alocação",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/pedido/mapaSinotico": {
+      "get": {
+        "parameters": [
+          {
+            "name": "numeroPedido",
+            "in": "query",
+            "required": "true",
+            "default": 98040,
+            "description": "Numero do Pedido",
+            "type": "string"
+          },
+          {
+            "name": "codigoFilial",
+            "in": "query",
+            "required": "true",
+            "default": 38,
+            "description": "Codigo Filial",
+            "type": "number"
+          }
+        ],
+        "tags": [
+          "Pedidos"
+        ],
+        "summary": "Detalhes mapa sinotico",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/pedido/fimDaViagem": {
+      "put": {
+        "parameters": [
+          {
+            "name": "numeroPedido",
+            "in": "query",
+            "required": "true",
+            "default": "SP-05-SEG-11052020",
+            "description": "Numero do pedido",
+            "type": "string"
+          },
+          {
+            "name": "codigoFilial",
+            "in": "query",
+            "required": "true",
+            "default": 38,
+            "description": "Codigo Filial",
+            "type": "number"
+          }
+        ],
+        "tags": [
+          "Pedidos"
+        ],
+        "summary": "Atualizar o status da “Programação de Veículo” para “Baixada” no rodopar",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/notificacao": {
+      "get": {
+        "parameters": [
+          {
+            "name": "ordenacao",
+            "in": "query",
+            "description": "Campo para ordenação",
+            "type": "string",
+            "default": "dataHora"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "default": 20,
+            "description": "Limite por pagina",
+            "type": "string"
+          },
+          {
+            "name": "direcao",
+            "in": "query",
+            "description": "asc ou desc",
+            "type": "string"
+          },
+          {
+            "name": "numeroPedido",
+            "in": "query",
+            "default": "98096",
+            "description": "Numero do Pedido",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Notificação"
+        ],
+        "summary": "Listagem das notificações",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "Login",
+            "in": "body",
+            "description": "Dados para o Login",
+            "schema": {
+              "$ref": "#/definitions/Notificacao"
+            }
+          }
+        ],
+        "tags": [
+          "Notificação"
+        ],
+        "summary": "Incluir notificações",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/notificacao/nao-lidas": {
+      "get": {
+        "parameters": [
+          {
+            "name": "ordenacao",
+            "in": "query",
+            "description": "Campo para ordenação",
+            "type": "string",
+            "default": "dataHora"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "default": 20,
+            "description": "Limite por pagina",
+            "type": "string"
+          },
+          {
+            "name": "direcao",
+            "in": "query",
+            "description": "asc ou desc",
+            "type": "string"
+          },
+          {
+            "name": "numeroPedido",
+            "in": "query",
+            "default": "98096",
+            "description": "Numero do Pedido",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Notificação"
+        ],
+        "summary": "Listagem das notificações",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/notificacao/{pNotificacaoId}/marcarLido": {
+      "put": {
+        "parameters": [
+          {
+            "name": "pNotificacaoId",
+            "in": "path",
+            "description": "Dados para o Login",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Notificação"
+        ],
+        "summary": "Atualiza as notificações do usuário como lida",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/notificacao/{pNotificacaoId}/enviarEmail": {
+      "post": {
+        "parameters": [
+          {
+            "name": "pNotificacaoId",
+            "in": "path",
+            "description": "id da notificação para o qual será enviado os emails",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Notificação"
+        ],
+        "summary": "Envia as notificações por email",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/rastreador": {
+      "get": {
+        "parameters": [
+          {
+            "name": "placa",
+            "in": "query",
+            "description": "Placa para verificar o posicionamento",
+            "type": "string"
+          },
+          {
+            "name": "ordenacao",
+            "in": "query",
+            "description": "Campo para ordenação",
+            "type": "string"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "default": 20,
+            "description": "Limite por pagina",
+            "type": "string"
+          },
+          {
+            "name": "direcao",
+            "in": "query",
+            "description": "asc ou desc",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Rastreador"
+        ],
+        "summary": "Listagem das notificações",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "Login",
+            "in": "body",
+            "description": "Dados para o Login",
+            "schema": {
+              "$ref": "#/definitions/Notificacao"
+            }
+          }
+        ],
+        "tags": [
+          "Rastreador"
+        ],
+        "summary": "Incluir notificações",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/rastreador/obterSituacao/{placa}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "placa",
+            "in": "path",
+            "description": "Placa para verificar o posicionamento",
+            "type": "string"
+          },
+          {
+            "name": "ordenacao",
+            "in": "query",
+            "description": "Campo para ordenação",
+            "type": "string"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "description": "Numero da pagina de retorno",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "default": 20,
+            "description": "Limite por pagina",
+            "type": "string"
+          },
+          {
+            "name": "direcao",
+            "in": "query",
+            "description": "asc ou desc",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Rastreador"
+        ],
+        "summary": "Listagem das notificações",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/ocorrencias": {
+      "parameters": [
+        {
+          "name": "periodoViagemInicial",
+          "in": "query",
+          "default": "2020-06-01T04:00:00.000Z",
+          "required": false,
+          "description": "Periodo Inicial de viagem",
+          "type": "string"
+        },
+        {
+          "name": "periodoViagemFinal",
+          "in": "query",
+          "default": "2020-09-23T04:00:00.000Z",
+          "required": false,
+          "description": "Periodo Final de viagem",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": " Total de Ocorrências por Status",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/motoristas": {
+      "parameters": [
+        {
+          "name": "periodoViagemInicial",
+          "in": "query",
+          "default": "2020-06-01T04:00:00.000Z",
+          "required": false,
+          "description": "Periodo Inicial de viagem",
+          "type": "string"
+        },
+        {
+          "name": "periodoViagemFinal",
+          "in": "query",
+          "default": "2020-09-23T04:00:00.000Z",
+          "required": false,
+          "description": "Periodo Final de viagem",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": " Total de motorista por Status",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/veiculos": {
+      "parameters": [
+        {
+          "name": "periodoViagemInicial",
+          "in": "query",
+          "default": "2020-06-01T04:00:00.000Z",
+          "required": false,
+          "description": "Periodo Inicial de viagem",
+          "type": "string"
+        },
+        {
+          "name": "periodoViagemFinal",
+          "in": "query",
+          "default": "2020-09-23T04:00:00.000Z",
+          "required": false,
+          "description": "Periodo Final de viagem",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": " Total de veiculos por Status ",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/pedido": {
+      "parameters": [
+        {
+          "name": "dataRetiradaInicial",
+          "in": "query",
+          "default": "2020-06-01T04:00:00.000Z",
+          "required": false,
+          "description": "Data Retirada Inicial ",
+          "type": "string"
+        },
+        {
+          "name": "dataRetiradaFinal",
+          "in": "query",
+          "default": "2020-09-23T04:00:00.000Z",
+          "required": false,
+          "description": "Data Retirada Final",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": " Total de Pedidos por Status ",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    },
+    "/parametroGeral": {
+      "get": {
+        "tags": [
+          "Parâmetros"
+        ],
+        "summary": "Listar os Parâmetros",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/default"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "default": {
+      "properties": {
+        "default": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      },
+      "default": {
+        "default": "default"
+      }
+    },
+    "Login": {
+      "required": [
+        "login",
+        "senha"
+      ],
+      "properties": {
+        "login": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "senha": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      },
+      "example": {
+        "login": "uTesteAutomatizado",
+        "senha": "123456"
+      }
+    },
+    "UsuarioPermissao": {
+      "required": [
+        "perfilId",
+        "moduloId",
+        "funcionalidadeId",
+        "usuarioId",
+        "permiteAlterar",
+        "permiteConsultar"
+      ],
+      "properties": {
+        "perfilId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "moduloId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "funcionalidadeId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "usuarioId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "permiteAlterar": {
+          "type": "boolean"
+        },
+        "permiteConsultar": {
+          "type": "boolean"
+        }
+      }
+    },
+    "UsuarioPermissaoArray": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "#/definitions/UsuarioPermissao"
+      },
+      "example": {
+        "permissoes": [
+          {
+            "perfilId": "5e00c1b3ef9b422a54182443",
+            "moduloId": "5e00c1b3ef9b422a54182443",
+            "funcionalidadeId": "5e00c1b3ef9b422a54182443",
+            "permiteAlterar": true,
+            "permiteConsultar": true
+          }
+        ]
+      }
+    },
+    "Perfil": {
+      "required": [
+        "nome",
+        "status",
+        "descricao",
+        "usuarioInclusao",
+        "usuarioAlteracao"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "status": {
+          "type": "boolean"
+        },
+        "descricao": {
+          "type": "string"
+        },
+        "usuarioInclusao": {
+          "type": "string"
+        },
+        "usuarioAlteracao": {
+          "type": "string"
+        }
+      }
+    },
+    "PerfilComPermissao": {
+      "required": [
+        "nome",
+        "status",
+        "descricao",
+        "usuarioInclusao",
+        "usuarioAlteracao"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "status": {
+          "type": "boolean"
+        },
+        "descricao": {
+          "type": "string"
+        },
+        "usuarioInclusao": {
+          "type": "string"
+        },
+        "permissoes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/PerfilPermissao"
+          }
+        }
+      },
+      "example": {
+        "nome": "Administrador",
+        "status": true,
+        "descricao": "Administradores com privilégio total",
+        "usuarioInclusao": "admin",
+        "usuarioAlteracao": "admin",
+        "permissoes": [
+          {
+            "perfilId": "5e00c1b3ef9b422a54182443",
+            "moduloId": "5e00c1b3ef9b422a54182443",
+            "funcionalidadeId": "5e00c1b3ef9b422a54182443",
+            "permiteAlterar": true,
+            "permiteConsultar": true
+          }
+        ]
+      }
+    },
+    "Perfis": {
+      "type": "array",
+      "$ref": "#/definitions/Perfil"
+    },
+    "Usuario": {
+      "required": [
+        "email",
+        "_id"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "login": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "usuarioAlteracao": {
+          "type": "string"
+        },
+        "dataAlteracao": {
+          "type": "string"
+        },
+        "usuarioInclusao": {
+          "type": "string"
+        },
+        "dataInclusao": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "celular": {
+          "type": "string"
+        },
+        "telefone": {
+          "type": "string"
+        },
+        "cpf": {
+          "type": "string"
+        },
+        "ehCliente": {
+          "type": "boolean"
+        },
+        "sexo": {
+          "type": "string"
+        },
+        "status": {
+          "type": "boolean"
+        },
+        "dataNascimento": {
+          "type": "string"
+        },
+        "perfilId": {
+          "type": "string"
+        },
+        "permissoes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/UsuarioPermissao"
+          }
+        },
+        "empresas": {
+          "type": "array",
+          "items:": {
+            "type": "object",
+            "$ref": "#/definitions/UsuarioEmpresa"
+          }
+        }
+      },
+      "example": {
+        "nome": "Marcos dias",
+        "login": "mdias",
+        "senha": "123456",
+        "email": "marcosdias@cuboconnect.com.br",
+        "celular": "123123123213",
+        "telefone": "123123123213",
+        "cpf": "123123123213",
+        "ehCliente": false,
+        "sexo": "M",
+        "status": true,
+        "dataNascimento": "1994-11-05T08:15:30-05:00",
+        "perfilId": "000000000000000000000001",
+        "permissoes": [
+          {
+            "moduloId": "000000000000000000000001",
+            "funcionalidadeId": "000000000000000000000001",
+            "permiteAlterar": true,
+            "permiteConsultar": true
+          }
+        ],
+        "empresas": [
+          {
+            "hubEmpresaId": 12222,
+            "filiais": [
+              {
+                "hubFilialId": 123
+              }
+            ]
+          }
+        ],
+        "parceiros": [
+          {
+            "hubParceiroId": 12
+          }
+        ]
+      }
+    },
+    "Users": {
+      "type": "array",
+      "$ref": "#/definitions/Usuario"
+    },
+    "Token": {
+      "required": [
+        "token"
+      ],
+      "properties": {
+        "token": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    },
+    "UsuarioEmpresa": {
+      "required": [
+        "hubEmpresaId"
+      ],
+      "properties": {
+        "hubEmpresaId": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    },
+    "PerfilPermissao": {
+      "required": [
+        "perfilId",
+        "moduloId",
+        "funcionalidadeId",
+        "usuarioId",
+        "permiteAlterar",
+        "permiteConsultar"
+      ],
+      "properties": {
+        "perfilId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "moduloId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "funcionalidadeId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "usuarioId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "permiteAlterar": {
+          "type": "boolean"
+        },
+        "permiteConsultar": {
+          "type": "boolean"
+        }
+      }
+    },
+    "PerfilPermissaoArray": {
+      "type": "array",
+      "$ref": "#/definitions/PerfilPermissao"
+    },
+    "UsuarioLoginEmpresa": {
+      "properties": {
+        "totalRegistros": {
+          "type": "number",
+          "uniqueItems": true
+        },
+        "totalRegistrosPagina": {
+          "type": "number",
+          "uniqueItems": true
+        },
+        "dados": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/Empresa"
+          }
+        }
+      }
+    },
+    "Empresa": {
+      "properties": {
+        "numeroLinha": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "codigoEmpresa": {
+          "type": "number",
+          "uniqueItems": true
+        },
+        "descricao": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "tipo": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "codigoGrupo": {
+          "type": "number",
+          "uniqueItems": true
+        }
+      }
+    },
+    "UsuarioLoginFilial": {
+      "properties": {
+        "totalRegistros": {
+          "type": "number",
+          "uniqueItems": true
+        },
+        "totalRegistrosPagina": {
+          "type": "number",
+          "uniqueItems": true
+        },
+        "dados": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/Filial"
+          }
+        }
+      }
+    },
+    "Filial": {
+      "properties": {
+        "numeroLinha": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "codigoFilial": {
+          "type": "number",
+          "uniqueItems": true
+        },
+        "razaoSocial": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "identificadorStatus": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    },
+    "Modulo": {
+      "properties": {
+        "nome": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    },
+    "Modulos": {
+      "properties": {
+        "default": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    },
+    "Funcionalidade": {
+      "properties": {
+        "nome": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    },
+    "Funcionalidades": {
+      "properties": {
+        "default": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    },
+    "Motorista": {
+      "properties": {
+        "default": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      },
+      "example": {
+        "codigoMotorista": 10,
+        "valorSalarioBase": 10,
+        "valorTotalEncargos": 20,
+        "valorTotalBeneficios": 30,
+        "quantidadeHorasExtras": 40,
+        "codigoSegurancaCNH": "12345478900",
+        "valorCafeManha": "123.00",
+        "valorAlmoco": "20.00",
+        "valorJantar": 22.99,
+        "valorPerNoite": 23.0
+      }
+    },
+    "Motoristas": {
+      "properties": {
+        "default": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    },
+    "Veiculos": {
+      "properties": {
+        "totalRegistros": {
+          "type": "number",
+          "uniqueItems": true
+        },
+        "totalRegistrosPagina": {
+          "type": "number",
+          "uniqueItems": true
+        },
+        "dados": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/Veiculo"
+          }
+        }
+      }
+    },
+    "Veiculo": {
+      "properties": {
+        "numeroLinha": {
+          "type": "string"
+        },
+        "codigoVeiculo": {
+          "type": "string"
+        },
+        "identificacaoPlacaVeiculo": {
+          "type": "string"
+        },
+        "descricaoTipoVeiculo": {
+          "type": "string"
+        },
+        "descricaoMarca": {
+          "type": "string"
+        },
+        "descricaoModelo": {
+          "type": "string"
+        },
+        "nomeProprietario": {
+          "type": "string"
+        },
+        "descricaoTipoVinculoProprietario": {
+          "type": "string"
+        },
+        "descricaoSituacaoVeiculo": {
+          "type": "string"
+        }
+      }
+    },
+    "custooperacional": {
+      "required": [
+        "hubParceiroId",
+        "codigoTipoOperacao",
+        "identificacaoClassificacaoVeiculo",
+        "valorCustoFreeTime"
+      ],
+      "properties": {
+        "hubParceiroId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "codigoTipoOperacao": {
+          "type": "string"
+        },
+        "identificacaoClassificacaoVeiculo": {
+          "type": "string"
+        },
+        "tempoLimitePedidoAceite": {
+          "type": "string"
+        },
+        "usuarioInclusao": {
+          "type": "string"
+        },
+        "usuarioAlteracao": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "hubParceiroId": "134",
+        "codigoTipoOperacao": "10",
+        "descricaoTipoOperacao": "teste descrição tipo operação",
+        "identificacaoClassificacaoVeiculo": "15",
+        "descricaoClassificacaoVeiculo": "Teste Classificação Veículo",
+        "valorCustoFreeTime": "2.52",
+        "tempoLimitePedidoAceite": "00:30",
+        "usuarioInclusao": "25"
+      }
+    },
+    "tempolimiteaceite": {
+      "required": [
+        "hubParceiroId"
+      ],
+      "properties": {
+        "hubParceiroId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "tempoLimitePedidoAceite": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "hubParceiroId": "134",
+        "tempoLimitePedidoAceite": "00:30"
+      }
+    },
+    "tempomovimento": {
+      "required": [
+        "hubParceiroId"
+      ],
+      "properties": {
+        "hubParceiroId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "tempoLimitePedidoAceite": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "hubParceiroId": "134",
+        "hubFornecedorId": "489",
+        "descricaoFornecedor": "FOTOGRAVURA ZEYANA LTDA",
+        "tempoAguardandoPatio": "16:12",
+        "tempoCarregamento": "09:00",
+        "tempoDescarga": "03:00",
+        "tempoEmissao": "02:00",
+        "tempoFornecedor": "11:00",
+        "tempoFreeTimeCliente": "10:00",
+        "tempoMaxCliente": "02:00",
+        "tempoSlaEntrega": "11:00",
+        "identificacaoClassificacaoVeiculo": 13,
+        "descricaoClassificacaoVeiculo": "BI-TREM GRANELEIRO"
+      }
+    },
+    "alteracustooperacional": {
+      "properties": {
+        "hubParceiroId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "codigoTipoOperacao": {
+          "type": "string"
+        },
+        "identificacaoClassificacaoVeiculo": {
+          "type": "string"
+        },
+        "tempoLimitePedidoAceite": {
+          "type": "string"
+        },
+        "usuarioAlteracao": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "hubParceiroId": "134",
+        "codigoTipoOperacao": "10",
+        "identificacaoClassificacaoVeiculo": "15",
+        "valorCustoFreeTime": "2.52",
+        "tempoLimitePedidoAceite": "00:30",
+        "usuarioAlteracao": "25"
+      }
+    },
+    "alteracaotempolimite": {
+      "properties": {
+        "hubParceiroId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "codigoTipoOperacao": {
+          "type": "string"
+        },
+        "identificacaoClassificacaoVeiculo": {
+          "type": "string"
+        },
+        "tempoLimitePedidoAceite": {
+          "type": "string"
+        },
+        "usuarioAlteracao": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "tempoLimitePedidoAceite": "01:10",
+        "usuarioInclusao": "25"
+      }
+    },
+    "CustoFixo": {
+      "properties": {
+        "codigoVeiculo": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "vigenciaCustoFixo": {
+          "type": "string"
+        },
+        "custoReposicaoFrota": {
+          "type": "number"
+        },
+        "custoRemuneracaoFrota": {
+          "type": "number"
+        },
+        "custoMotoristaTotal": {
+          "type": "number"
+        },
+        "custoFixoTotal": {
+          "type": "number"
+        },
+        "custoDocumentosImpostos": {
+          "type": "number"
+        },
+        "custoRastreador": {
+          "type": "number"
+        },
+        "custoSeguro": {
+          "type": "number"
+        }
+      },
+      "example": {
+        "codigoVeiculo": "AAA1111",
+        "vigenciaCustoFixo": "2021-02-11T18:16:41.279Z",
+        "custoReposicaoFrota": 10,
+        "custoRemuneracaoFrota": 10,
+        "custoMotoristaTotal": 10,
+        "custoFixoTotal": 10,
+        "custoDocumentosImpostos": 10,
+        "custoRastreador": 10,
+        "custoSeguro": 10
+      }
+    },
+    "CustoVariavel": {
+      "properties": {
+        "codigoVeiculo": {
+          "type": "string",
+          "uniqueItems": true,
+          "default": "AAA111"
+        },
+        "codigoRegiaoOperacao": {
+          "type": "number"
+        },
+        "dataVigenciaVariavel": {
+          "type": "string"
+        },
+        "custoOleoDiesel": {
+          "type": "number"
+        },
+        "custoMediaConsumo": {
+          "type": "number"
+        },
+        "combustivelPorKm": {
+          "type": "number"
+        },
+        "custoGalaoArla": {
+          "type": "number"
+        },
+        "mediaConsumoArla": {
+          "type": "number"
+        },
+        "arlaPorKm": {
+          "type": "number"
+        },
+        "custoPneu": {
+          "type": "number"
+        },
+        "kmsPorPneu": {
+          "type": "number"
+        },
+        "pneuPorKm": {
+          "type": "number"
+        },
+        "custoLavagem": {
+          "type": "number"
+        },
+        "despesasViagem": {
+          "type": "number"
+        },
+        "comissaoMotorista": {
+          "type": "number"
+        },
+        "custoManutencaoKm": {
+          "type": "number"
+        }
+      },
+      "example": {
+        "codigoVeiculo": "AAA111",
+        "codigoRegiaoOperacao": 0,
+        "dataVigenciaVariavel": "2022-01-01",
+        "custoOleoDiesel": 0,
+        "custoMediaConsumo": 0,
+        "combustivelPorKm": 0,
+        "custoGalaoArla": 0,
+        "mediaConsumoArla": 0,
+        "arlaPorKm": 0,
+        "custoPneu": 0,
+        "kmsPorPneu": 0,
+        "pneuPorKm": 0,
+        "custoLavagem": 0,
+        "despesasViagem": 0,
+        "comissaoMotorista": 0,
+        "custoManutencaoKm": 0
+      }
+    },
+    "RegiaoOperacao": {
+      "properties": {
+        "regiaoOperacao": {
+          "type": "string"
+        }
+      }
+    },
+    "VigenciaRegiaoOperacao": {
+      "properties": {
+        "vigenciaRegiaoOperacao": {
+          "type": "string"
+        },
+        "codigoRegiaoOperacao": {
+          "type": "number"
+        },
+        "custoOleoDiesel": {
+          "type": "number"
+        },
+        "custoGalaoArla": {
+          "type": "number"
+        },
+        "custoLavagem": {
+          "type": "number"
+        },
+        "despesasViagem": {
+          "type": "number"
+        }
+      }
+    },
+    "RotaDadoComplementar": {
+      "properties": {
+        "hubRotaId": {
+          "type": "number"
+        },
+        "hubVeiculoClassificacaoId": {
+          "type": "number"
+        },
+        "velocidadeMediaVazio": {
+          "type": "number"
+        },
+        "velocidadeMediaCarregado": {
+          "type": "number"
+        }
+      },
+      "example": {
+        "hubRotaId": "1",
+        "hubVeiculoClassificacaoId": "1",
+        "velocidadeMediaVazio": 129.00,
+        "velocidadeMediaCarregado": 39
+      }
+    },
+    "classificacaoParceiro": {
+      "properties": {
+        "identificacaoClassificacao": {
+          "type": "number"
+        },
+        "descricaoClassificacao": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "identificacaoClassificacao": 1,
+        "descricaoClassificacao": "CLIENTE"
+      }
+    },
+    "Poligono": {
+      "properties": {
+        "codigoPoligono": {
+          "type": "number"
+        },
+        "descricao": {
+          "type": "string"
+        },
+        "tipoPoligonoId": {
+          "type": "string"
+        },
+        "hubParceiroId": {
+          "type": "number"
+        },
+        "ativo": {
+          "type": "number"
+        }
+      },
+      "example": {
+        "descricao": "Área descanso Petrobrás",
+        "tipoPoligonoId": "5e45a2e8a3993736a8a81125",
+        "hubParceiroId": 1,
+        "ativo": true,
+        "pontos": [
+          {
+            "sequenciaPonto": 1,
+            "latitude": "21.489879",
+            "longitude": "81.990986"
+          },
+          {
+            "sequenciaPonto": 2,
+            "latitude": "31.489879",
+            "longitude": "91.990986"
+          },
+          {
+            "sequenciaPonto": 4,
+            "latitude": "21.489879",
+            "longitude": "11.990986"
+          }
+        ]
+      }
+    },
+    "Ativo": {
+      "properties": {
+        "ativo": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Ponto": {
+      "properties": {
+        "ativo": {
+          "type": "boolean"
+        },
+        "sequenciaPonto": {
+          "type": "number"
+        },
+        "latitude": {
+          "type": "String"
+        },
+        "longitude": {
+          "type": "String"
+        }
+      }
+    },
+    "TipoPoligono": {
+      "properties": {
+        "descricao": {
+          "type": "string"
+        }
+      }
+    },
+    "Notificacao": {
+      "properties": {
+        "tipoOcorrenciaId": {
+          "type": "string"
+        },
+        "titulo": {
+          "type": "string"
+        },
+        "corpo": {
+          "type": "string"
+        },
+        "dataHora": {
+          "type": "string"
+        },
+        "usuarios": {
+          "type": "array"
+        },
+        "emails": {
+          "type": "array"
+        }
+      },
+      "example": {
+        "tipoOcorrenciaId": "5e56dd411bb32931c654812d",
+        "titulo": "titulo Teste",
+        "corpo": "corpo Teste",
+        "usuarios": [
+          {
+            "usuarioId": "000000000000000000000001",
+            "lido": false
+          }
+        ],
+        "emails": [
+          {
+            "email": "teste@gmail.com",
+            "enviado": false
+          }
+        ],
+        "dataHora": "2020-01-01",
+        "placaTemporaria": "AAA111"
+      }
+    },
+    "Pedido": {
+      "properties": {
+        "numeroPedido ": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "codigoFilial": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "codigoMotorista1": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "codigoMotorista2": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "placa1": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "placa2": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "placa3": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "placa4": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "dataSaida": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      },
+      "example": {
+        "codigoMotorista1": "221",
+        "codigoMotorista2": "273",
+        "placa1": "BWS5413",
+        "placa2": "AJG8075",
+        "placa3": "EZZ8310",
+        "placa4": "CQH9180",
+        "dataSaida": "2020-05-11T18:16:41"
+      }
+    }
+  }
+}

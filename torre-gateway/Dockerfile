@@ -1,0 +1,25 @@
+FROM alpine:3.10
+
+ENV NODE_VERSION 12.14.1
+
+RUN addgroup -g 1000 node && adduser -u 1000 -G node -s /bin/sh -D node && apk add --no-cache
+
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+
+WORKDIR /home/node/app
+ 
+COPY package*.json ./
+
+RUN apk add --update nodejs nodejs-npm
+
+RUN npm install
+
+COPY . .
+
+COPY --chown=node:node . .
+
+USER node
+
+EXPOSE 8084 9876
+
+CMD [ "npm", "start" ]

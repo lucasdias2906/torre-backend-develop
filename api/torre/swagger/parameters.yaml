@@ -1,0 +1,24 @@
+parameters:
+  ocorrenciaTipoParametro:
+    name: ocorrenciaTipoParametro
+    description: ocorrenciaTipoParametro
+    in: body
+    required: true
+    type: string
+  Login:
+    type: object
+    required:
+      - username
+      - password
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+        path:
+          type: string
+    example:
+      Jessica:
+        value:
+          id: 10
+          name: Jessica
